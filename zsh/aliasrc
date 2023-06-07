@@ -1,0 +1,158 @@
+#!usr/bin/env bash
+
+restart_shell() {
+  clear && echo "restart shell"
+  exec $SHELL
+}
+
+# change directory with fzf, $1 is parent dir of the target.
+cdf() {
+  [ -z "$1" ] && echo "Usage: change directory with fancy find. cdf <dir>"
+  # TODO support options
+  cd $(find $1 | fzf)
+}
+
+mkdc () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+ed() { command ed -p\> "$@" ; }
+
+# $1 numbers of files going to be moved, $2 target directory
+move_recent_download_to_dir() {
+  dfiles=$( ls -td ~/Downloads/* | head -n $1)
+  mv $dfiles $2
+}
+
+# CSE gateway
+gw() {
+  echo "usage: connect to CSE gateway."
+  echo "After connection, use ssh linux[1-16] to connect remote machine."
+  ssh kpso2@gw.cse.cuhk.edu.hk
+}
+
+# quick editing
+alias \
+  vim="gvim -v" \
+  vi="gvim -v" \
+  v="gvim -v" \
+  vz="gvim -v $ZDOTDIR/.zshrc" \
+  va="gvim -v $ZDOTDIR/aliasrc" \
+  vp="gvim -v $ZDOTDIR/profile" \
+  ve="gvim -v $ZDOTDIR/env" \
+  vs="gvim -v $ZDOTDIR/shortcut" \
+  vt="gvim -v $ZDOTDIR/script/ts" \
+  vv="gvim -v ~/.vim/vimrc" \
+  vc="gvim -v ~/.vim/config/" \
+  yab="brew services restart yabai"
+
+# Directories
+setopt autopushd pushdignoredups
+alias \
+  ..='cd ..' \
+  ...='cd ../..' \
+  ....='cd ../../..' \
+  .....='cd ../../../..' \
+  ......='cd ../../../../..' \
+  mkd='mkdir -p'
+
+vpmkd(){
+  [ -z $1 ] && echo "Usage: vpmkd <name of plugin directory>, create a simple vim plugin structure" && return
+  mkdir -p ~/.vim/pack/myplugins/start/$1/autoload ~/.vim/pack/myplugins/start/$1/plugin
+  cd ~/.vim/pack/myplugins/start/$1
+}
+
+d() {
+  [[ $1 == "-" ]] && cd - && return
+  [ -z "$1" ] && dirs -v && return || cd +"$1"
+}
+
+# Tmux 
+alias \
+  tls="tmux ls" \
+  tn="tmux new -t" \
+  ta="tmux a -t" 
+
+# cmd too long
+alias \
+  ez="restart_shell" \
+  t="tree" \
+  e="echo" \
+  p="printf" \
+  clr="clear" \
+  mand="tldr" \
+  wh="which" \
+  x="xargs" \
+  xov="xargs -o gvim -v" \
+  xov="xargs -o gvim -v" \
+  su="sudo -i" \
+  del="trash" \
+  mvdd="move_recent_download_to_dir"
+
+fn() {
+  [ -z $1 ] && echo "Usage ff: ff <regex | name of files>, find files matched regex in current directory" && return
+  find . -type f -name "$1"
+}
+
+# git
+alias \
+  g="git" \
+  ga="git add --all" \
+  gm="git commit -m" \
+  gp="git push" \
+  gclone="git clone" \
+  cgpush="config_git_push" \
+  gs="git status"
+
+# gh repo create and push to repository
+ghrc() {
+  [ -z "$*" ] && echo "Please commit the change" && return
+  git init
+  gh repo create
+  git add --all
+  git commit -m "$*"
+  git push --set-upstream origin main
+}
+
+# fedora package manager dnf
+alias \
+  dnfi="sudo dnf install" \
+  dnfa="sudo dnf autoremove" \
+  dnfs="dnf search"
+ 
+# customized function
+alias \
+  qn="quick_note" \
+  fnrs="file-name-remove-space" \
+
+# Readalbe & color
+alias \
+  fd="fd --color never" \
+  grep="grep -i --color=auto" \
+  htop="TERM=xterm-256color htop" \
+  news="TERM=xterm-256color newsboat" \
+  ll="ls -l --color=auto -h --group-directories-first" \
+  la="ls -la --color=auto -h --group-directories-first" \
+  mc="mc -b" \
+  df="df -h"
+
+# ls
+l() {
+  [ -z "$*" ] && ls -h --color=auto --group-directories-first && return
+  command ls -h --color=auto --group-directories-first -"$1" "${@:2}"
+}
+
+# hugo
+# list all create new hugo post and edit it
+hn() {
+  tree content/post/ ; [ -z $1 ] && return
+  hugo new post/$1.md && vim content/post/$1.md
+}
+
+# create executable temporary shell script
+tmp() {
+  touch tmp.sh && chmod +x tmp.sh && vim tmp.sh
+}
+
+# kmoand
+alias \
+  kk="start_kmonad" \
+  kkk="sudo kill kmonad"

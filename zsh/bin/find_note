@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# saerching pattern in NOTE_DIR, target can be note, directory, words.
+
+usage="$0: [-w] pattern, search pattern in note directory"
+
+while getopts "w:d:" opt; do
+  case $opt in
+    w)
+      sword="true"
+      shift
+      ;;
+    d)
+      find_dir="true"
+      shift
+      ;;
+    \?)
+      echo "$usage" >&2
+      return ;;
+  esac
+done
+
+[ -z "$*" ] && echo "$usage" && return
+key="$*"
+
+fnote() {
+  matched=$(find -s $NOTE_DIR | grep -iE "\/*$key\w*\.md$")
+  [ -z "$matched" ] && echo "No notes found." && return
+  echo $matched
+}
+
+fword() {
+  sword=""
+  mds=$(find -s $NOTE_DIR | grep -E ".md$")
+  matched=$(echo $mds | xargs grep -Eli "$key")
+  [ -z "$matched" ] && echo "Keywords not found" && return
+
+  obs search "$key"
+  echo "$matched" | xargs -o vim +"set highlight" +/"$key"
+}
+
+# TODO result may search from the dir outside NOTE_DIR
+fdir() {
+  find_dir=""
+  matched=$( find $NOTE_DIR -type d -not -path '*/\.*' | grep -i "$key")
+  [ -z "$matched" ] && echo "No directory found" && return
+  echo $matched
+}
+
+if [ $sword ]; then
+  fword
+elif [ $find_dir ]; then
+  fdir
+else
+  fnote
+fi

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+sudo kill kmonad
+sudo kmonad /home/so/.config/kmonad/config.kbd &
+sudo kmonad /home/so/.config/kmonad/us100.kbd &
+#sudo kmonad /home/so/.config/kmonad/us_ansi_87.kbd &
+#sudo kmonad /home/so/.config/kmonad/us_ansi_87_2.kbd &

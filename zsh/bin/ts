@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+false=0
+true=1
+
+((false)) && echo false
+((true)) && echo true
+((!false)) && echo not false
+((!true)) && echo not true

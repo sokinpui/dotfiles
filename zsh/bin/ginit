@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+repo_url=$1
+usage="Usage: ginit [url of repository]"
+
+[ -z repo_url ] && echo $usage ; return
+echo "Just build..." >> README.md
+git init
+git add README.md
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin $repo_url
+git push -u origin main
+
+

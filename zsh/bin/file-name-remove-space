@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for f in * ;do
+  renamef=$(echo $f | perl -pe "s/ /-/g")
+  echo $renamef
+done

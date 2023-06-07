@@ -1,0 +1,95 @@
+(defcfg
+  input  (device-file "/dev/input/by-path/pci-0000:00:14.0-usb-0:4:1.0-event-kbd")
+  output (uinput-sink "100 keyboard")
+  fallthrough true
+  allow-cmd true
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  pause del  home end  pgup  pgdn 
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc       nlck kp/  kp*  kp-
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \          kp7  kp8  kp9  kp+
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret             kp4  kp5  kp6
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft up              kp1  kp2  kp3  kprt
+  lctl lmet lalt           spc            ralt cmp   rctl left down rght       kp0  kp.
+)
+
+(defalias
+
+  bi (cmd-button "brightnessctl set +2% >> /dev/null") ;; increase brightness
+  bd (cmd-button "brightnessctl set 2%- >> /dev/null") ;; decrease brightness
+
+  SS (layer-toggle space-shift)
+  LC (layer-toggle control)
+  PH (layer-toggle parenthesis)
+
+  ;; layer
+  EP (tap-next-press =   @PH)
+  SPC (tap-next-press spc @SS)
+  ESC (tap-next-press esc @LC)
+
+  ;; Marco
+  -> #(- > :delay 20)
+  @: #(@ :) ;; vim last command
+  , #(C-spc , C-w)
+
+  ``` #(` ` ` :delay 15)
+
+  kp4 #(s o s o k i n p u i S-2 g m a i l . c o m :delay 20)
+  kp5 #(1 1 5 5 1 9 3 5 0 6 S-2 l i n k . c u h k . e d u . h k :delay 20)
+  kp1 #(C-c C-t C-v ret :delay 15) ;; copy and search and new page in browser
+  kp2 #(C-t C-v ret :delay 15) ;; search the last copied content in browser new page
+
+  ;; hyper
+  app_launcher (around lalt spc) ;; app launcher
+  ALT (tap-next-press lmet ralt)
+)
+
+(deflayer base
+  caps f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  pause del  home end  pgup  pgdn 
+  S-grv 1    2    3    4    5    6    7    8    9    0   \\    `  bspc       nlck kp/  kp*  kp-
+  tab   q    w    e    r    t    y    u    i    o    p    S-'  [  ]          kp7  kp8  kp9  kp+
+  @EP   a    s    d    f    g    h    j    k    l    ;    -    ret           @kp4  @kp5  kp6
+  @ESC  z    x    c    v    b    n    m    ,    .    /    rsft up            @kp1  @kp2  kp3  kprt
+  lctl  lmet lalt           @SPC           @ALT cmp   rctl left down rght     kp0  kp.
+)
+
+(deflayer space-shift
+  S-caps S-f1   S-f2   S-f3   S-f4   S-f5   S-f6   S-f7   S-f8   S-f9   S-f10  S-f11  S-f12  S-pause S-del  S-home S-end  S-pgup  S-pgdn 
+  S-grv S-1    S-2    S-3    S-4    S-5    S-6    S-7    S-8    S-9    S-0   S-\    @```  C-bspc       nlck kp/  kp*  kp-
+  S-tab   S-q    S-w    S-e    S-r    S-t    S-y    S-u    S-i    S-o    S-p    '  S-[  S-]            kp7  kp8  kp9  kp+
+  S-=  S-a    S-s    S-d    S-f    S-g    S-h    S-j    S-k    S-l    :    S--   S-ret                 kp4  kp5  kp6
+  grv  S-z    S-x    S-c    S-v    S-b    S-n    S-m    S-,    S-.    S-/    rsft S-up                 kp1  kp2  kp3  kprt
+  lctl  lmet lalt           @SPC           ralt  cmp   rctl S-left S-down S-rght                        kp0  kp.
+
+)
+
+(deflayer control
+  C-caps C-f1   C-f2   C-f3   C-f4   C-f5   C-f6   C-f7   C-f8   C-f9   C-f10  C-f11  C-f12  C-pause C-del  C-home C-end  C-pgup  C-pgdn 
+  C-grv C-1    C-2    C-3    C-4    C-5    C-6    C-7    C-8    C-9    C-0   C-\    @```  C-bspc       nlck kp/  kp*  kp-
+  C-tab   C-q    C-w    C-e    C-r    C-t    C-y    C-u    C-i    C-o    C-p    '  C-[  C-]            kp7  kp8  kp9  kp+
+  C-=  C-a    C-s    C-d    C-f    C-g    C-h    C-j    C-k    C-l    :    C--   C-ret                 kp4  kp5  kp6
+  @ESC  C-z    C-x    C-c    C-v    C-b    C-n    C-m    C-,    C-.    C-/    rsft C-up                 kp1  kp2  kp3  kprt
+  lctl  lmet lalt           C-spc           ralt  cmp   rctl C-left C-down C-rght                        kp0  kp.
+
+)
+
+(deflayer parenthesis
+  _   _   _   _   _   _   _   _   _   _   _   _   _   _     _  _  _  _  _ 
+  _   _   _   _   _   _   _   _   _   _   _   _   _   _     _  _  _  _
+  _   _   _   _   _   _   _   ]   [   _   _   _   _   _     _  _  _  _
+  @EP _   _   _   _   _   _   }   {   _   @@: @-> _         _  _  _
+  _   _   _   _   _   _   _   _   @,  _   _   _ _           _  _  _  _
+  _   _ _           _         _   _   _   _   _ _           _  _
+)
+
+#|                                                               
+(deflayer name-of-the-layer
+  _   _   _   _   _   _   _   _   _   _   _   _   _   _     _  _ _  _  _ 
+  _   _   _   _   _   _   _   _   _   _   _   _   _   _     _ _  _  _
+  _   _   _   _   _   _   _   _   _   _   _   _   _   _     _  _  _  _
+  _   _   _   _   _   _   _   _   _   _   _   _   _         _  _  _
+  _   _   _   _   _   _   _   _   _   _   _   _ _           _  _  _  _
+  _   _ _           _         _   _   _   _   _ _           _  _
+)
+|#

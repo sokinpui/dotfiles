@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# fzf search from the current directory.
+
+directory=$(fd --unrestricted --type directory | fzf)
+[ -z $directory ] && return
+cd $directory
+ls -l --group-directories-first

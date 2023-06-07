@@ -1,0 +1,11 @@
+#!usr/bin/env bash
+
+# keyboard shortcut
+# fzf search directory name and change directory
+#fzfcd(){
+#  directory=$(fd --unrestricted --type directory | fzf)
+#  [ -z $directory ] && return
+#  cd $directory
+#  ls -l --group-directories-first
+#}
+bindkey -s '^f' 'fzfcd\n'

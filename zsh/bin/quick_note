@@ -1,0 +1,6 @@
+#!usr/bin/env bash
+
+tmp="${NOTE_DIR}/.temp"
+nfiles=$( ls "$tmp" | awk 'END{print NR}' )
+echo "${nfiles} quick notes created in .temp directory"
+vim "${tmp}/$1.md"

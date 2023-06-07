@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+[ -z "$*" ] && echo "Please commit the change" && exit
+git add --all && git commit -m "$*" && git push
+

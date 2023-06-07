@@ -1,0 +1,8 @@
+ZDOTDIR="${HOME}/.config/zsh"
+SHELL="/bin/zsh"
+EDITOR="gvim -v"
+SUDO_EDITOR="gvim -v"
+
+# customized path
+PATH="$PATH:$HOME/.config/zsh/bin"
+

@@ -1,0 +1,122 @@
+(defcfg
+  input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "kmonad")
+  fallthrough true
+  allow-cmd true
+)
+
+(defsrc
+esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
+  grv  1    2    3    4    5    6    7    8    9    0    -     =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [     ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '          ret
+  lsft z    x    c    v    b    n    m    ,    .    /               rsft
+  wkup lctl lmet lalt           spc            ralt sys  rctl  pgdn up   pgup
+                                                               left down rght
+)
+
+(defalias
+
+  bi (cmd-button "brightnessctl set +2% >> /dev/null") ;; increase brightness
+  bd (cmd-button "brightnessctl set 2%- >> /dev/null") ;; decrease brightness
+
+  si (cmd-button "amixer set Master 2%+ >> /dev/null") ;; volume
+  sd (cmd-button "amixer set Master 2%- >> /dev/null") 
+  sm (cmd-button "amixer set Master 0% >> /dev/null") 
+
+  SS (layer-toggle space-shift)
+  LC (layer-toggle control)
+  PH (layer-toggle parenthesis)
+
+  ;; layer
+  EP (tap-next-press =   @PH)
+  SPC (tap-next-press spc @SS)
+  ESC (tap-next-press esc @LC)
+  INS (layer-next macro-switcher)
+
+  ;; Marco
+  -> #(- > :delay 20)
+  @: #(@ :) ;; vim last command
+  ren #(C-spc , C-w)
+
+  ``` #(` ` ` :delay 15)
+
+  o #(s o s o k i n p u i S-2 g m a i l . c o m :delay 20)
+  p #(1 1 5 5 1 9 3 5 0 6 S-2 l i n k . c u h k . e d u . h k :delay 20)
+  1 #(C-c C-t C-v ret :delay 5) ;; copy and search and new page in browser
+  2 #(C-t C-v ret :delay 5) ;; search the last copied content in browser new page
+
+  ;; hyper
+  app_launcher (around lalt spc) ;; app launcher
+  ALT (tap-next-press lmet ralt)
+)
+
+(deflayer base
+caps  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  @INS  del
+S-grv  1    2    3    4    5    6    7    8    9    0    \\    `     bspc
+  tab  q    w    e    r    t    y    u    i    o    p    S-'     [    ]
+  @EP  a    s    d    f    g    h    j    k    l    ;    -          ret
+  @ESC  z    x    c    v    b    n    m    ,    .    /               rsft
+  wkup lctl lmet lalt           @SPC            @ALT  sys  rctl  pgdn up   pgup
+                                                               left down rght
+)
+
+(deflayer space-shift
+  caps  @sm   @sd   @si   f4   @bd   @bi   f7   f8   f9   f10  f11  f12  S-home S-end  S-ins  S-del
+  grv    S-1    S-2    S-3    S-4    S-5    S-6    S-7    S-8    S-9    S-0    |    @```     C-bspc
+  S-tab  S-q    S-w    S-e    S-r    S-t    S-y    S-u    S-i    S-o    S-p    '     S-[    S-]
+  S-=    S-a    S-s    S-d    S-f    S-g    S-h    S-j    S-k    S-l    :    S--          S-ret
+  grv    S-z    S-x    S-c    S-v    S-b    S-n    S-m    S-,    S-.    S-/               rsft
+  wkup lctl lmet lalt           @SPC            ralt sys  rctl  S-pgdn S-up   S-pgup
+                                                                S-left S-down S-rght
+          )
+
+(deflayer control
+  caps  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
+  C-grv  C-1    C-2    C-3    C-4    C-5    C-6    C-7    C-8    C-9    C-0    C-\\    C-`     C-bspc
+  C-tab  C-q    C-w    C-e    C-r    C-t    C-y    C-u    C-i    C-o    C-p    C-'     C-[    C-]
+  C-=    C-a    C-s    C-d    C-f    C-g    C-h    C-j    C-k    C-l    C-;    C--      C-ret
+  @ESC    C-z    C-x    C-c    C-v    C-b    C-n    C-m    C-,    C-.    C-/               rsft
+  wkup lctl lmet lalt           C-spc            ralt sys  rctl  C-pgdn C-up   C-pgup
+                                                                 C-left C-down C-rght
+          )
+
+(deflayer parenthesis
+_    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _     _
+  _    _    _    _    _    _    _    ]    [    _    _    _    _     _
+  @EP  _    _    _    _    _    _    }    {    _    @@:    @->          _
+  _    _    _    _    _    _    _    _    @ren    _    _               _
+  _    _    _    _              _              _    _    _     _    _    _
+                                                               _    _    _
+)
+
+(deflayer macro-switcher
+_    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _   @1  @2   _    _    _    _    _    _    _    _    _    _     _
+  _    _    _    _    _    _    _    _    _    @o @p _    _     _
+  _    _    _    _    _    _    _    _    _    _    _    _          _
+  _    _    _    _    _    _    _    _    _    _    _               _
+  _  _    _    _              _              _    _    _     _    _    _
+                                                               _    _    _
+)
+
+#|
+(deflayer name
+_    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _     _
+  _    _    _    _    _    _    _    _    _    _    _    _    _     _
+  _    _    _    _    _    _    _    _    _    _    _    _          _
+  _    _    _    _    _    _    _    _    _    _    _               _
+  _    _    _    _              _              _    _    _     _    _    _
+                                                               _    _    _
+
+esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
+  g    1    2    3    4    5    6    7    8    9    0    -     =    bspc
+  t    q    w    e    r    t    y    u    i    o    p    [     ]    \
+  c    a    s    d    f    g    h    j    k    l    ;    '          ret
+  l    z    x    c    v    b    n    m    ,    .    /               rsft
+  w    lctl lmet lalt           spc            ralt sys  rctl  pgdn u   pgup
+                                                               l    d   r
+)
+|#
