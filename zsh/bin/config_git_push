@@ -4,12 +4,6 @@
 
 cd $HOME/.config
 [ ! -f nameList.txt ] && "nameList.txt do not exist\nProvide configurstion that should put into repository and save them into nameList.txt" && exit
-CONFIG_FILES=$(cat nameList.txt)
-
-for CONFIG_FILE in $CONFIG_FILES; do
-  git add $CONFIG_FILE
-done
-
 git commit -m "$*"
 
 git push

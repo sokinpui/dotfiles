@@ -1,5 +1,20 @@
 #!/usr/bin/env sh
 
 [ -z "$*" ] && echo "Please commit the change" && exit
-git add --all && git commit -m "$*" && git push
+
+if [ -f nameList.txt ]; then
+  echo "Found nameList.txt"
+
+  CONFIG_FILES=$(cat nameList.txt)
+
+  for CONFIG_FILE in $CONFIG_FILES; do
+    git add $CONFIG_FILE
+  done
+else
+  echo "Do not found nameList.txt"
+  git add --add
+fi
+
+git commit -m "$*"
+git push
 
