@@ -55,7 +55,7 @@
 )
 
 (deflayer space-shift
-  S-caps S-f1   S-f2   S-f3   S-f4   S-f5   S-f6   S-f7   @bd   S-f9   @bi  S-f11  S-f12  S-pause S-del  S-home S-end  S-pgup  S-pgdn 
+  S-caps S-f1   S-f2   S-f3   S-f4   S-f5   S-f6   S-f7   S-f8   @bd   S-f10  @bi  S-f12  S-pause S-del  S-home S-end  S-pgup  S-pgdn 
   S-grv S-1    S-2    S-3    S-4    S-5    S-6    S-7    S-8    S-9    S-0   S-\    @```  C-bspc       nlck kp/  kp*  kp-
   S-tab   S-q    S-w    S-e    S-r    S-t    S-y    S-u    S-i    S-o    S-p    '  S-[  S-]            kp7  kp8  kp9  kp+
   S-=  S-a    S-s    S-d    S-f    S-g    S-h    S-j    S-k    S-l    :    S--   S-ret                 kp4  kp5  kp6
