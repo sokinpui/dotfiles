@@ -69,11 +69,11 @@ inoremap <silent><expr> <c-o> coc#refresh()
 nnoremap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
 nnoremap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
 
-augroup CocGroup
-  autocmd!
-  autocmd FileType markdown b:coc_suggest_disable = 1
-  autocmd FileType text b:coc_suggest_disable = 1
-augroup end
+#augroup CocGroup
+#  autocmd!
+#  autocmd FileType markdown b:coc_suggest_disable = 1
+#  autocmd FileType text b:coc_suggest_disable = 1
+#augroup end
 
 #   coc.snippets
 imap <C-j> <Plug>(coc-snippets-expand-jump)

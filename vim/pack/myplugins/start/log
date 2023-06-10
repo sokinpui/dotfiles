@@ -1,0 +1,116 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.007  000.007: --- VIM STARTING ---
+000.073  000.066: Allocated generic buffers
+000.149  000.076: locale set
+000.153  000.004: GUI prepared
+000.153  000.000: clipboard setup
+000.158  000.005: window checked
+000.491  000.333: inits 1
+000.563  000.072: parsing arguments
+000.565  000.002: expanding arguments
+000.572  000.007: shell init
+001.076  000.504: xsmp init
+001.872  000.796: Termcap init
+001.912  000.040: inits 2
+002.017  000.105: init highlight
+003.394  000.824  000.824: sourcing /usr/share/vim/vim90/colors/lists/default.vim
+003.500  001.049  000.225: sourcing /usr/share/vim/vim90/syntax/syncolor.vim
+003.592  001.197  000.148: sourcing /usr/share/vim/vim90/syntax/synload.vim
+009.909  000.019  000.019: sourcing /home/so/.vim/ftdetect/kbd.vim
+009.967  000.015  000.015: sourcing /usr/share/vim/vimfiles/ftdetect/stp.vim
+010.054  006.425  006.391: sourcing /usr/share/vim/vim90/filetype.vim
+010.854  000.211  000.211: sourcing /usr/share/vim/vim90/autoload/dist/script.vim
+011.441  000.855  000.644: sourcing /usr/share/vim/vim90/scripts.vim
+016.366  001.003  001.003: sourcing /usr/share/vim/vim90/syntax/lua.vim
+018.795  000.674  000.674: sourcing /usr/share/vim/vim90/syntax/python.vim
+019.565  007.937  006.260: sourcing /usr/share/vim/vim90/syntax/vim.vim
+019.652  017.315  000.901: sourcing /usr/share/vim/vim90/syntax/syntax.vim
+019.703  000.011  000.011: sourcing /usr/share/vim/vim90/filetype.vim
+019.788  000.052  000.052: sourcing /usr/share/vim/vim90/ftplugin.vim
+019.917  017.877  000.499: sourcing /etc/vimrc
+020.342  000.012  000.012: sourcing /usr/share/vim/vim90/filetype.vim
+020.387  000.012  000.012: sourcing /usr/share/vim/vim90/ftplugin.vim
+020.428  000.009  000.009: sourcing /usr/share/vim/vim90/filetype.vim
+020.467  000.009  000.009: sourcing /usr/share/vim/vim90/ftplugin.vim
+020.531  000.033  000.033: sourcing /usr/share/vim/vim90/indent.vim
+021.089  000.234  000.234: sourcing /usr/share/vim/vim90/syntax/syncolor.vim
+022.145  000.950  000.950: sourcing /usr/share/vim/vim90/syntax/nosyntax.vim
+022.487  000.241  000.241: sourcing /usr/share/vim/vim90/syntax/syncolor.vim
+022.590  000.391  000.150: sourcing /usr/share/vim/vim90/syntax/synload.vim
+027.740  000.903  000.903: sourcing /usr/share/vim/vim90/syntax/lua.vim
+028.606  000.517  000.517: sourcing /usr/share/vim/vim90/syntax/python.vim
+029.360  006.648  005.228: sourcing /usr/share/vim/vim90/syntax/vim.vim
+029.434  008.272  000.283: sourcing /usr/share/vim/vim90/syntax/syntax.vim
+030.445  000.706  000.706: sourcing /usr/share/vim/vim90/colors/lists/default.vim
+031.227  000.241  000.241: sourcing /usr/share/vim/vim90/syntax/syncolor.vim
+032.017  000.238  000.238: sourcing /usr/share/vim/vim90/syntax/syncolor.vim
+032.221  000.089  000.089: sourcing /home/so/.vim/autoload/onedark.vim
+058.976  028.486  027.918: sourcing /home/so/.vim/colors/onedark.vim
+061.506  001.543  001.543: sourcing /home/so/.vim/autoload/plug.vim
+063.352  000.671  000.671: sourcing /usr/share/vim/vim90/ftoff.vim
+070.564  000.011  000.011: sourcing /home/so/.vim/ftdetect/kbd.vim
+070.658  000.013  000.013: sourcing /usr/share/vim/vimfiles/ftdetect/stp.vim
+070.773  006.216  006.192: sourcing /usr/share/vim/vim90/filetype.vim
+070.860  000.015  000.015: sourcing /usr/share/vim/vim90/ftplugin.vim
+070.945  000.011  000.011: sourcing /usr/share/vim/vim90/indent.vim
+071.230  000.224  000.224: sourcing /home/so/.vim/plugins.vim
+071.233  051.283  004.830: sourcing ~/.vim/vimrc
+071.235  000.058: sourcing vimrc file(s)
+071.599  000.148  000.148: sourcing /home/so/.vim/plugin/templates.vim
+072.080  000.355  000.355: sourcing /home/so/.vim/plugged/vim-sandwich/plugin/operator/sandwich.vim
+072.386  000.287  000.287: sourcing /home/so/.vim/plugged/vim-sandwich/plugin/sandwich.vim
+072.566  000.164  000.164: sourcing /home/so/.vim/plugged/vim-sandwich/plugin/textobj/sandwich.vim
+072.658  000.022  000.022: sourcing /home/so/.vim/plugged/goyo.vim/plugin/goyo.vim
+073.047  000.162  000.162: sourcing /home/so/.vim/plugged/coc.nvim/autoload/coc/rpc.vim
+073.642  000.360  000.360: sourcing /home/so/.vim/plugged/coc.nvim/autoload/coc/util.vim
+074.104  000.246  000.246: sourcing /home/so/.vim/plugged/coc.nvim/autoload/coc/client.vim
+076.234  000.555  000.555: sourcing /home/so/.vim/plugged/coc.nvim/autoload/coc/api.vim
+077.244  004.533  003.210: sourcing /home/so/.vim/plugged/coc.nvim/plugin/coc.vim
+077.820  000.482  000.482: sourcing /home/so/.vim/plugged/vimux/plugin/vimux.vim
+078.715  000.805  000.805: sourcing /home/so/.vim/plugged/fzf/plugin/fzf.vim
+078.811  000.021  000.021: sourcing /usr/share/vim/vimfiles/plugin/fzf.vim
+079.082  000.070  000.070: sourcing /usr/share/vim/vim90/plugin/getscriptPlugin.vim
+079.338  000.239  000.239: sourcing /usr/share/vim/vim90/plugin/gzip.vim
+079.582  000.226  000.226: sourcing /usr/share/vim/vim90/plugin/logiPat.vim
+079.638  000.036  000.036: sourcing /usr/share/vim/vim90/plugin/manpager.vim
+079.856  000.203  000.203: sourcing /usr/share/vim/vim90/plugin/matchparen.vim
+080.461  000.584  000.584: sourcing /usr/share/vim/vim90/plugin/netrwPlugin.vim
+080.537  000.043  000.043: sourcing /usr/share/vim/vim90/plugin/rrhelper.vim
+080.589  000.030  000.030: sourcing /usr/share/vim/vim90/plugin/spellfile.vim
+080.785  000.177  000.177: sourcing /usr/share/vim/vim90/plugin/tarPlugin.vim
+080.983  000.173  000.173: sourcing /usr/share/vim/vim90/plugin/tohtml.vim
+081.187  000.183  000.183: sourcing /usr/share/vim/vim90/plugin/vimballPlugin.vim
+081.423  000.205  000.205: sourcing /usr/share/vim/vim90/plugin/zipPlugin.vim
+081.839  000.314  000.314: sourcing /usr/share/vim/vim90/pack/dist/opt/matchit/plugin/matchit.vim
+081.845  001.310: loading plugins
+082.064  000.058  000.058: sourcing /home/so/.config/vim/pack/myplugins/start/CompileAndRun/plugin/complie_run.vim
+082.181  000.025  000.025: sourcing /home/so/.config/vim/pack/myplugins/start/DeletePair/plugin/main.vim
+082.238  000.310: loading packages
+082.283  000.045: loading after plugins
+082.963  000.680: inits 3
+083.365  000.402: reading viminfo
+084.630  001.265: setup clipboard
+084.649  000.019: setting raw mode
+084.655  000.006: start termcap
+084.700  000.045: clearing screen
+087.043  000.265  000.265: sourcing /usr/share/vim/vim90/scripts.vim
+087.841  000.316  000.316: sourcing /usr/share/vim/vim90/ftplugin/vim.vim
+088.182  000.043  000.043: sourcing /home/so/.vim/plugged/vim-sandwich/after/ftplugin/vim/sandwich.vim
+088.427  000.062  000.062: sourcing /usr/share/vim/vim90/indent/vim.vim
+098.270  001.500  001.500: sourcing /usr/share/vim/vim90/syntax/lua.vim
+099.595  000.897  000.897: sourcing /usr/share/vim/vim90/syntax/python.vim
+101.052  011.720  009.323: sourcing /usr/share/vim/vim90/syntax/vim.vim
+101.361  004.255: opening buffers
+101.404  000.043: BufEnter autocommands
+101.405  000.001: editing files in windows
+102.416  000.499  000.499: sourcing /home/so/.vim/plugged/coc.nvim/autoload/coc/highlight.vim
+103.170  000.519  000.519: sourcing /home/so/.vim/plugged/coc.nvim/autoload/coc/color.vim
+112.740  010.317: VimEnter autocommands
+112.743  000.003: before starting main loop
+142.991  030.248: first screen update
+142.993  000.002: --- VIM STARTED ---

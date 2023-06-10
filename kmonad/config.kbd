@@ -43,8 +43,8 @@ esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  
 
   o #(s o s o k i n p u i S-2 g m a i l . c o m :delay 20)
   p #(1 1 5 5 1 9 3 5 0 6 S-2 l i n k . c u h k . e d u . h k :delay 20)
-  1 #(C-c C-t C-v ret :delay 5) ;; copy and search and new page in browser
-  2 #(C-t C-v ret :delay 5) ;; search the last copied content in browser new page
+  1 #(C-c C-t C-v ret :delay 25) ;; copy and search and new page in browser
+  2 #(C-t C-v ret :delay 25) ;; search the last copied content in browser new page
 
   ;; hyper
   app_launcher (around lalt spc) ;; app launcher

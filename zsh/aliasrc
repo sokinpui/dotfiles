@@ -87,9 +87,9 @@ alias \
   del="trash" \
   mvdd="move_recent_download_to_dir"
 
-fn() {
-  [ -z $1 ] && echo "Usage ff: ff <regex | name of files>, find files matched regex in current directory" && return
-  find . -type f -name "$1"
+ffn() {
+  [ -z $* ] && echo "Usage ff: ff <regex | name of files>, find files matched regex in current directory" && return
+  find . -type f -name "$*"
 }
 
 # git

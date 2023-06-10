@@ -37,8 +37,8 @@
 
   kp4 #(s o s o k i n p u i S-2 g m a i l . c o m :delay 20)
   kp5 #(1 1 5 5 1 9 3 5 0 6 S-2 l i n k . c u h k . e d u . h k :delay 20)
-  kp1 #(C-c C-t C-v ret :delay 15) ;; copy and search and new page in browser
-  kp2 #(C-t C-v ret :delay 15) ;; search the last copied content in browser new page
+  kp1 #(C-c C-t C-v ret :delay 25) ;; copy and search and new page in browser
+  kp2 #(C-t C-v ret :delay 25) ;; search the last copied content in browser new page
 
   ;; hyper
   app_launcher (around lalt spc) ;; app launcher
@@ -46,7 +46,7 @@
 )
 
 (deflayer base
-  caps f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  pause del  home end  pgup  pgdn 
+  caps f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc del  home end  pgup  pgdn 
   S-grv 1    2    3    4    5    6    7    8    9    0   \\    `  bspc       nlck kp/  kp*  kp-
   tab   q    w    e    r    t    y    u    i    o    p    S-'  [  ]          kp7  kp8  kp9  kp+
   @EP   a    s    d    f    g    h    j    k    l    ;    -    ret           @kp4  @kp5  kp6
@@ -55,7 +55,7 @@
 )
 
 (deflayer space-shift
-  S-caps S-f1   S-f2   S-f3   S-f4   S-f5   S-f6   S-f7   S-f8   @bd   S-f10  @bi  S-f12  S-pause S-del  S-home S-end  S-pgup  S-pgdn 
+  S-caps S-f1   S-f2   S-f3   S-f4   S-f5   S-f6   S-f7   S-f8   @bd   S-f10  @bi  S-f12  pause S-del  S-home S-end  S-pgup  S-pgdn 
   S-grv S-1    S-2    S-3    S-4    S-5    S-6    S-7    S-8    S-9    S-0   S-\    @```  C-bspc       nlck kp/  kp*  kp-
   S-tab   S-q    S-w    S-e    S-r    S-t    S-y    S-u    S-i    S-o    S-p    '  S-[  S-]            kp7  kp8  kp9  kp+
   S-=  S-a    S-s    S-d    S-f    S-g    S-h    S-j    S-k    S-l    :    S--   S-ret                 kp4  kp5  kp6

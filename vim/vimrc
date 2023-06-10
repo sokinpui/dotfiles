@@ -8,7 +8,7 @@ $PAGER = ''
 &t_TE = "\<Esc>[>4;m"
 
 set path=$PWD/**
-set undodir=$HOME/.vim/undo
+set undodir=$HOME/.config/vim/undo
 set undofile
 set nocompatible
 set nopaste
@@ -229,4 +229,4 @@ Plug 'preservim/vimux'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 plug#end()
-source ~/.vim/config/plugins.vim
+source ~/.vim/plugins.vim
