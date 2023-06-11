@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# install notion
+# install snaps
 sudo ln -s /var/lib/snapd/snap /snap
 
+# install notion
 sudo snap install notion-snap-reborn

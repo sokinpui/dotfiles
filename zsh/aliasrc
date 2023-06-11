@@ -143,16 +143,18 @@ l() {
 # hugo
 # list all create new hugo post and edit it
 hn() {
-  tree content/post/ ; [ -z $1 ] && return
-  hugo new post/$1.md && vim content/post/$1.md
+  tree content/post/
+  [ -z $1 ] && return
+  hugo new post/$1.md && gvim -v content/post/$1.md
 }
 
 # create executable temporary shell script
 tmp() {
-  touch tmp.sh && chmod +x tmp.sh && vim tmp.sh
+  touch tmp.sh && chmod +x tmp.sh && gvim -v tmp.sh
 }
 
 # kmoand
 alias \
-  kk="start_kmonad" \
-  kkk="sudo kill kmonad"
+  k="start_kmonad" \
+  kk="sudo kill kmonad" \
+  kkk="sudo kill kmonad && start_kmonad"
