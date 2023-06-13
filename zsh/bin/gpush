@@ -12,7 +12,7 @@ if [ -f nameList.txt ]; then
   done
 else
   echo "Do not found nameList.txt"
-  git add --add
+  git add --all
 fi
 
 git commit -m "$*"

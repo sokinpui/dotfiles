@@ -66,8 +66,8 @@ inoremap <silent><expr> <space> coc#pum#visible() ? "<esc>a<space>"
 inoremap <silent><expr> <c-o> coc#refresh()
 
 # jump to next/previous error
-nnoremap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
-nnoremap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
+nnoremap <silent> <LEADER>, <Plug>(coc-diagnostic-prev)
+nnoremap <silent> <LEADER>. <Plug>(coc-diagnostic-next)
 
 #augroup CocGroup
 #  autocmd!

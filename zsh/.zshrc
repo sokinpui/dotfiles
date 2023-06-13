@@ -30,7 +30,7 @@ checkVimstatus=$(echo $VIMRUNTIME)
 
 precmd () {
 __git_ps1 "%B%F{red}[%f%n@%m${shellEmulator} %F{cyan}%3~%f%F{red}]%f%b" "
-$ " "|%s"
+%B»%b " "|%s"
 }
 PS2='%F{green}%_>%f '
 
