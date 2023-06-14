@@ -41,13 +41,15 @@ esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  
 
   ``` #(` ` ` :delay 15)
 
-  o #(s o s o k i n p u i S-2 g m a i l . c o m :delay 20)
-  p #(1 1 5 5 1 9 3 5 0 6 S-2 l i n k . c u h k . e d u . h k :delay 20)
-  1 #(C-c C-t C-v ret :delay 25) ;; copy and search and new page in browser
-  2 #(C-t C-v ret :delay 25) ;; search the last copied content in browser new page
+  4 #(s o s o k i n p u i S-2 g m a i l . c o m :delay 25)
+  5 #(1 1 5 5 1 9 3 5 0 6 S-2 l i n k . c u h k . e d u . h k :delay 25)
+  6 #(5 5 3 2 9 4 7 0 :delay 25)
+
+  7 #(C-c C-t C-v ret :delay 25) ;; copy and search and new page in browser
+  8 #(C-t C-v ret :delay 25) ;; search the last copied content in browser new page
+  9 #(C-a C-c :delay 25) ;; select all and copy
 
   ;; hyper
-  app_launcher (around lalt spc) ;; app launcher
   ALT (tap-next-press lmet ralt)
 )
 
@@ -93,8 +95,8 @@ _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    
 
 (deflayer macro-switcher
 _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _   @1  @2   _    _    _    _    _    _    _    _    _    _     _
-  _    _    _    _    _    _    _    _    _    @o @p _    _     _
+  _   _  _   _    @4    @5    @6    @7    @8    @9    _    _    _     _
+  _    _    _    _    _    _    _    _    _    _ _ _    _     _
   _    _    _    _    _    _    _    _    _    _    _    _          _
   _    _    _    _    _    _    _    _    _    _    _               _
   _  _    _    _              _              _    _    _     _    _    _
