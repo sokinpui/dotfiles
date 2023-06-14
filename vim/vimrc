@@ -3,6 +3,7 @@ vim9script
 # variable
 g:markdown_fenced_languages = ['c', 'sh', 'python', 'java']
 g:mapleader = " "
+
 $PAGER = ''
 &t_TI = "\<Esc>[>4;2m"
 &t_TE = "\<Esc>[>4;m"
@@ -20,6 +21,8 @@ filetype plugin indent on
 packadd! matchit
 set mouse=a
 set ttymouse=xterm2
+set concealcursor=nci
+set conceallevel=2
 
 #    Appearance
 set background=dark

@@ -6,3 +6,5 @@ SUDO_EDITOR="gvim -v"
 # customized path
 PATH="$PATH:$HOME/.config/zsh/bin"
 
+PAGER=''
+LESS='--mouse --wheel-lines=5'

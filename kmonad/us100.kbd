@@ -22,6 +22,7 @@
   SS (layer-toggle space-shift)
   LC (layer-toggle control)
   PH (layer-toggle parenthesis)
+  lmet (layer-toggle windows)
 
   ;; layer
   EP (tap-next-press =   @PH)
@@ -52,6 +53,7 @@
   kp8 #(C-t C-v ret :delay 25) ;; search the last copied content in browser new page
   kp9 #(C-a C-c :delay 25) ;; select all and copy
 
+  switch A-esc
   ;; hyper
   ALT (tap-next-press lmet ralt)
 )
@@ -91,6 +93,15 @@
   _   _   _   _   _   _   _   ]   [   _   _   _   _   _     _  _  _  _
   @EP _   _   _   _   _   _   }   {   _   @@: @-> _         _  _  _
   _   _   _   _   _   _   _   _   @,  _   _   _ _           _  _  _  _
+  _   _ _           _         _   _   _   _   _ _           _  _
+)
+
+(deflayer windows
+  _   _   _   _   _   _   _   _   _   _   _   _   _   _     _  _  _  _  _ 
+  _   _   _   _   _   _   _   _   _   _   _   _   _   _     _  _  _  _
+  _   _   _   _   _   _   _   _   _   _   _   _   _   _     _  _  _  _
+  _ _   _   _   _   _   _   _   _   _   _ _ _         _  _  _
+  @switch   _   _   _   _   _   _   _   _  _   _   _ _           _  _  _  _
   _   _ _           _         _   _   _   _   _ _           _  _
 )
 
