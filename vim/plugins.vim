@@ -47,11 +47,6 @@ elseif has('linux')
     g:mkdp_browser = 'google-chrome'
 endif
      
-#   goyo
-nnoremap <leader>G :Goyo<cr>
-g:goyo_width = 90
-g:goyo_height = 100
-
 #   coc.nvim
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : 
       \ cocfunc#CheckBackspace() ? "\<TAB>" : coc#refresh()
@@ -79,3 +74,9 @@ nnoremap <silent> <LEADER>. <Plug>(coc-diagnostic-next)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 g:coc_snippet_next = '<C-j>'
 g:coc_snippet_prev = '<C-k>'
+
+# vim-markdwon
+g:vim_markdown_folding_disabled = 1
+g:vim_markdown_no_default_key_mappings = 1
+g:vim_markdown_conceal_code_blocks = 0
+g:vim_markdown_math = 1

@@ -21,8 +21,8 @@ filetype plugin indent on
 packadd! matchit
 set mouse=a
 set ttymouse=xterm2
-set concealcursor=nci
-set conceallevel=2
+#set concealcursor=""
+set conceallevel=1
 
 #    Appearance
 set background=dark
@@ -162,6 +162,8 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 nnoremap <leader>w <C-w>w
 #nnoremap <leader>= <c-w>=
+nnoremap <leader>q <C-w>q
+
 
 # run command in split window
 nnoremap <leader>s :VimuxPromptCommand<CR>
@@ -194,7 +196,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 # auto source .vimrc
 autocmd! bufwritepost .vimrc ++nested source %
 nnoremap <leader>S :source ~/.vim/vimrc<cr>
-noremap <leader>q1 :q!<cr>
 
 # update current file
 noremap <leader>e :edit! %<cr>
@@ -226,10 +227,11 @@ cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 plug#begin()
 Plug 'sokinpui/vim-sandwich'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/vimux'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'godlygeek/tabular' 
+Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 
 plug#end()
 source ~/.vim/plugins.vim
