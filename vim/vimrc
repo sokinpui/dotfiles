@@ -110,7 +110,7 @@ if has("linux")
     vnoremap <C-c> "+y
     nnoremap <leader>P "+p
     vnoremap <leader>P "+p
-    inoremap <C-v> <C-o>"+p
+    #inoremap <C-v> <C-o>"+p
     nnoremap gy :1,$y +<cr>
 else
     nnoremap <leader>y "*yy
@@ -229,6 +229,7 @@ Plug 'preservim/vimux'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'godlygeek/tabular' 
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
+Plug 'lilydjwg/fcitx.vim' 
 
 plug#end()
 source ~/.vim/plugins.vim

@@ -63,9 +63,8 @@ key_bindings:
   - { key: Back, mods: Control, chars: "\x17" }
   - { key: V,              mods: Alt,        action: Paste            }
   - { key: C,              mods: Alt,        action: Copy             }
-  - { key: V,         mods: Control,                           action: Paste   }
+    #- { key: V,         mods: Control,         action: Paste   }
   - { key: N,  mods: Alt|Control, action: CreateNewWindow }
-  - { key: Q, mods: Control, chars: "\x16" }
 
 # Colors (Doom One)
 colors:
