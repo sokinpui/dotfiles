@@ -10,6 +10,8 @@ $PAGER = ''
 
 set path=$PWD/**
 set undodir=$HOME/.config/vim/undo
+set directory=/tmp//
+
 set undofile
 set nocompatible
 set nopaste

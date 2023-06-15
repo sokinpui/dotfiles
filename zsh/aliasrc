@@ -32,7 +32,12 @@ gw() {
 # quick editing
 alias \
   vim="gvim -v" \
+  viM="gvim -v" \
+  vIM="gvim -v" \
+  vIm="gvim -v" \
   vi="gvim -v" \
+  vI="gvim -v" \
+  v="gvim -v" \
   v="gvim -v" \
   vz="gvim -v $ZDOTDIR/.zshrc" \
   va="gvim -v $ZDOTDIR/aliasrc" \

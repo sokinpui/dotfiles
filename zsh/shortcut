@@ -8,4 +8,7 @@
 #  cd $directory
 #  ls -l --group-directories-first
 #}
+
+# shell mapping
 bindkey -s '^f' 'fzfcd\n'
+
