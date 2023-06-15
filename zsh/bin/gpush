@@ -4,6 +4,7 @@
 
 # back to the root directory in repo
 cd $(git rev-parse --show-toplevel)
+echo "The root of this repository is $(git rev-parse --show-toplevel)"
 
 if [ -f nameList.txt ]; then
   echo "Found nameList.txt"
