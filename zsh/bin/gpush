@@ -2,6 +2,9 @@
 
 [ -z "$*" ] && echo "Please commit the change" && exit
 
+# back to the root directory in repo
+cd $(git rev-parse --show-toplevel)
+
 if [ -f nameList.txt ]; then
   echo "Found nameList.txt"
 
