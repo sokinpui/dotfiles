@@ -101,7 +101,6 @@ set smartindent
 
 #       Mapping
 #   Copy & paste
-set pastetoggle=π
 
 if has("linux")
     nnoremap <leader>y "+yy
@@ -123,21 +122,19 @@ else
     vnoremap <leader>P "*p
     vnoremap <leader>P "*p
     nnoremap gy :1,$y *<cr>
+    set pastetoggle=π
+    nnoremap å <c-a>
+    nnoremap ≈ <c-x>
+    vnoremap gå g<c-a>
+    vnoremap g≈ g<c-x>
 endif
 
-# copy all text
 xnoremap <leader>p "_dP
 nnoremap D dd
-nnoremap <leader>v g^vg$
+nnoremap <leader>v g^vgg$
 
-noremap <space><space> :
+inoremap <C-k> <esc>k
 
-inoremap <C-k> <nop>
-
-nnoremap å <c-a>
-nnoremap ≈ <c-x>
-vnoremap gå g<c-a>
-vnoremap g≈ g<c-x>
 # increment and decrement of characters
 #set nrformats+=alpha
 
@@ -195,6 +192,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 # auto source .vimrc
 autocmd! bufwritepost .vimrc ++nested source %
 nnoremap <leader>S :source ~/.vim/vimrc<cr>
+nnoremap <C-z> :shell<cr>
 
 # update current file
 noremap <leader>e :edit! %<cr>
