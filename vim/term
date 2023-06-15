@@ -1,3 +1,4 @@
+
 vim9script
 
 # variable
@@ -107,11 +108,12 @@ if has("linux")
     nnoremap <leader>y "+yy
     nnoremap <leader>X "+dd
     vnoremap Y "+y
+    vnoremap C "+y
     vnoremap X "+x
-    vnoremap <C-c> "+y
     nnoremap <leader>P "+p
     vnoremap <leader>P "+p
-    inoremap <C-v> <C-o>"+p
+    vnoremap <leader>P "+p
+    vnoremap <C-c> "+p
     nnoremap gy :1,$y +<cr>
 else
     nnoremap <leader>y "*yy
