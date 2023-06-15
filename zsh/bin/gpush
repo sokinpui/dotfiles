@@ -8,6 +8,7 @@ echo "The root of this repository is $(git rev-parse --show-toplevel)"
 
 if [ -f nameList.txt ]; then
   echo "Found nameList.txt"
+  echo ""
 
   CONFIG_FILES=$(cat nameList.txt)
 
@@ -16,6 +17,7 @@ if [ -f nameList.txt ]; then
   done
 else
   echo "Do not found nameList.txt"
+  echo ""
   git add --all
 fi
 
