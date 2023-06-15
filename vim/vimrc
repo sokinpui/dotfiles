@@ -103,7 +103,7 @@ set pastetoggle=π
 
 if has("linux")
     nnoremap <leader>y "+yy
-    nnoremap <leader>x "+dd
+    nnoremap <leader>X "+dd
     vnoremap Y "+y
     vnoremap C "+y
     vnoremap X "+x
@@ -114,7 +114,7 @@ if has("linux")
     nnoremap gy :1,$y +<cr>
 else
     nnoremap <leader>y "*yy
-    nnoremap <leader>x "*dd
+    nnoremap <leader>X "*dd
     vnoremap Y "*y
     vnoremap C "*y
     vnoremap X "*x
@@ -164,7 +164,6 @@ nnoremap <leader>w <C-w>w
 #nnoremap <leader>= <c-w>=
 nnoremap <leader>q <C-w>q
 
-
 # run command in split window
 nnoremap <leader>s :VimuxPromptCommand<CR>
 
@@ -202,8 +201,8 @@ noremap <leader>e :edit! %<cr>
 
 # buffer switch
 nnoremap <Bs> :bn<cr> 
+nnoremap <Del> :bp<cr> 
 nnoremap <leader><bs> :b#<cr> 
-nnoremap <leader>bp :bp<cr> 
 nnoremap <CR> :ls<cr>
 # keep <cr> function in cli window and quickfix
 autocmd CmdwinEnter * nnoremap <CR> <CR>
