@@ -165,9 +165,10 @@ nnoremap <leader>q <C-w>q
 
 # resize windows
 #nnoremap <leader>= <c-w>=
-nnoremap <C-right> <c-w>>
-nnoremap <C-left> <c-w><
-nnoremap ^[[1;5D <c-w><
+nnoremap <c-right> <c-w>>
+nnoremap <c-left> <c-w><
+nnoremap <c-up> <c-w>+
+nnoremap <c-down> <c-w>-
 
 # run command in split window
 nnoremap <leader>s :VimuxPromptCommand<CR>
