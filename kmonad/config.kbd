@@ -47,7 +47,7 @@ esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  
 
   7 #(C-c C-t C-v ret :delay 25) ;; copy and search and new page in browser
   8 #(C-t C-v ret :delay 25) ;; search the last copied content in browser new page
-  9 #(C-a C-c :delay 25) ;; select all and copy
+  9 #(C-c C-f C-v ret :delay 25) ;; select all and copy
 
   ;; hyper
   ALT (tap-next-press lmet ralt)

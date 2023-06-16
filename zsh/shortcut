@@ -11,4 +11,10 @@
 
 # shell mapping
 bindkey -s '^f' 'fzfcd\n'
+# paste using ctrl-v
+_paste-copy-using-xsel() {
+  LBUFFER+="$(xsel -b -o)"
+}
 
+zle -N _paste-copy-using-xsel
+bindkey '^V' _paste-copy-using-xsel # Paste

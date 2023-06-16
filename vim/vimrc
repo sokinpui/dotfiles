@@ -62,12 +62,15 @@ set ignorecase
 set smartcase
 autocmd insertenter * set nohlsearch
 autocmd textchanged * set nohlsearch
-noremap / :set hlsearch<cr>/
-noremap ? :set hlsearch<cr>?
-noremap n n:set hlsearch<cr>
-noremap N N:set hlsearch<cr>
-noremap * :set hlsearch<cr>*
-noremap # :set hlsearch<cr>#
+nnoremap / :set hlsearch<cr>/
+nnoremap ? :set hlsearch<cr>?
+nnoremap n n:set hlsearch<cr>
+nnoremap N N:set hlsearch<cr>
+nnoremap * :set hlsearch<cr>*
+nnoremap # :set hlsearch<cr>#
+
+vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
+xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
 
 # search in split window
 noremap <c-w>/ :set hlsearch<cr><c-w>v<c-w>l/
@@ -110,7 +113,7 @@ if has("linux")
     vnoremap <C-c> "+y
     nnoremap <leader>P "+p
     vnoremap <leader>P "+p
-    #inoremap <C-v> <C-o>"+p
+    inoremap <C-v> <C-o>"+p
     nnoremap gy :1,$y +<cr>
 else
     nnoremap <leader>y "*yy
@@ -221,6 +224,9 @@ cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 
 # VimPlug
+nnoremap \i :w<cr>:source %<cr>:PlugInstall<cr>
+nnoremap \c :w<cr>:source %<cr>:PlugClean<cr>
+
 plug#begin()
 Plug 'sokinpui/vim-sandwich'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}

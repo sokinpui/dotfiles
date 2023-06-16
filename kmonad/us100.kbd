@@ -51,7 +51,7 @@
 
   kp7 #(C-c C-t C-v ret :delay 25) ;; copy and search and new page in browser
   kp8 #(C-t C-v ret :delay 25) ;; search the last copied content in browser new page
-  kp9 #(C-a C-c :delay 25) ;; select all and copy
+  kp9 #(C-c C-f C-v ret :delay 25) ;; select all and copy
 
   switch A-esc
   ;; hyper
