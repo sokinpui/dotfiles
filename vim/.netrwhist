@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/so/.config/zathura'
 let g:netrw_dirhist_7='/home/so/.config/vim'
 let g:netrw_dirhist_6='/home/so/.config/vim/undo'
 let g:netrw_dirhist_5='/home/so/.config/vim'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_2='/home/so/.config/vim'
 let g:netrw_dirhist_1='/home/so/.config/vim/plugged'
 let g:netrw_dirhist_0='/home/so/.config/vim/pack/myplugins/start/DeletePair/plugin'
 let g:netrw_dirhist_9='/home/so/.config/vim/pack/myplugins/start/DeletePair'
-let g:netrw_dirhist_8='/home/so/.config/vim'
