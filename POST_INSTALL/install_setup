@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+
+# TODO add list.txt for apps that is needed to move or use a git repo that only contain those config
+
+# Setup
+# install necessary packages
+sudo dnf install -y \
+  vim gvim neovim \
+  alacritty \
+  zsh tmux htop \
+  stack \
+  neofetch newsboat \
+  jetbrains-mono-fonts-all.noarch \
+  hugo \
+  gnome-tweaks \
+  fd-find \
+  ripgrep \
+  flatpak \
+  fzf \
+  pandoc \
+  fcitx5* fcitx5-chinese-addons \
+  steam wqy-zenhei-font \
+  julia \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
+  ffmpeg-libs gstreamer1-plugin-openh264 mozilla-openh264 \
+  snapd \
+  wmctrl xdotool \
+  python \
+  git \
+  protonvpn \
+  gh
+
+sudo dnf config-manager --set-enabled fedora-cisco-openh264
+
+# pip install
+pip install github-clone
+
+source ./repo_setup
+source ./kmonad_setup
+
+# TODO gnome-shell-extension
+
+# TODO apps that is installed using software.
+# install GUI application via flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+flatpak install flathub md.obsidian.Obsidian
+
+# change ibus to fcitx5
+fcitx5-config-qt

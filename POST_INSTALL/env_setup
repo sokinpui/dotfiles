@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+ln -s $HOME/.config/zsh/env $HOME/.zshenv
+ln -s $HOME/.config/zsh/profile $HOME/.zprofile
+ln -s $HOME/.config/vim $HOME/.vim
+
+sudo ln -s /var/lib/snapd/snap /snap

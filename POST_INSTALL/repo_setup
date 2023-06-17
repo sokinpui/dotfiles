@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# repo
+note_url="https://github.com/sokinpui/note"
+blog_url="https://github.com/sokinpui/blog-sokinpui"
+config_url="https://github.com/sokinpui/dotfiles.git"
+
+# script
+z_url="https://raw.githubusercontent.com/agkozak/zsh-z/master/zsh-z.plugin.zsh"
+git_prompt="https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
+
+mkdir -p $HOME/git_repo/mine
+
+# cloning repo into local machine
+git clone $note_url $HOME/git_repo/mine/note
+git clone $blog_url $HOME/git_repo/mine/blog
+git clone $config_url /tmp/dotfiles
+
+sudo cp /tmp/dotfiles/* $HOME/.config
+
+# install zsh-z and git_prompt script
+wget --directory-prefix $HOME/.local $z_url
+wget --directory-prefix $HOME/.local $git_prompt
+
+source ./env_setup

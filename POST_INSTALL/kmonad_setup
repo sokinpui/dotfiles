@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+kmonad_url="https://github.com/kmonad/kmonad.git"
+
+mkdir -p $HOME/git_repo
+
+git clone $kmonad_url $HOME/git_repo/kmonad
+
+# complie kmonad
+cd $HOME/git_repo/kmonad
+
+stack build
+
+exce_binary=$(find $HOME/git_repo/kmonad | grep "/bin/kmonad")
+sudo cp $exce_binary /usr/local/bin/kmonad
+sudo chmod +x /usr/local/bin/kmonad
+
