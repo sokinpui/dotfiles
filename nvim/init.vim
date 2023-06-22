@@ -239,4 +239,4 @@ Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 Plug 'lilydjwg/fcitx.vim' 
 
 call plug#end()
-" source ~/.config/nvim/plugins.vim
+source ~/.config/nvim/plugins.vim
