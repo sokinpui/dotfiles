@@ -54,6 +54,8 @@ set laststatus=2
 &t_SR = "\e[4 q" #SR = REPLACE mode
 &t_EI = "\e[2 q" #EI = NORMAL mode (ELSE)
 &t_SI = "\e[6 q" #SI = INSERT mode
+# initialize cursor
+au VimEnter * silent !printf '\e]112\a'
 
 #    Highlight
 #  Search
@@ -113,7 +115,7 @@ if has("linux")
     vnoremap <C-c> "+y
     nnoremap <leader>P "+p
     vnoremap <leader>P "+p
-    inoremap <C-v> <C-o>"+p
+    inoremap <C-v> <esc>"+pa
     nnoremap gy :1,$y +<cr>
 else
     nnoremap <leader>y "*yy
@@ -134,9 +136,7 @@ endif
 
 xnoremap <leader>p "_dP
 nnoremap D dd
-nnoremap <leader>v g^vgg$
-
-inoremap <C-k> <esc>k
+nnoremap <leader>v g^vg$
 
 # increment and decrement of characters
 #set nrformats+=alpha
@@ -164,14 +164,10 @@ nnoremap <leader>w <C-w>w
 nnoremap <leader>q <C-w>q
 
 # resize windows
-#nnoremap <leader>= <c-w>=
 nnoremap <c-right> <c-w>>
 nnoremap <c-left> <c-w><
 nnoremap <c-up> <c-w>+
 nnoremap <c-down> <c-w>-
-
-# run command in split window
-nnoremap <leader>s :VimuxPromptCommand<CR>
 
 #    Completion
 # Parethesises
@@ -187,7 +183,7 @@ augroup ftTextwidthWrap
     au filetype vim setlocal textwidth=0 wrap formatoptions=tcq linebreak
     au filetype yaml,conf setlocal textwidth=0 wrap formatoptions=tcq linebreak
     au filetype c,python setlocal textwidth=0 wrap formatoptions=tcq linebreak
-    au filetype text,markdown setlocal formatoptions=tcaw2n textwidth=80 linebreak 
+    au filetype text setlocal formatoptions=tcaw2n textwidth=80 linebreak 
 augroup END
 
 #       Buffer and file editing
@@ -238,7 +234,7 @@ Plug 'sokinpui/vim-sandwich'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/vimux'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular' 
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 Plug 'lilydjwg/fcitx.vim' 
