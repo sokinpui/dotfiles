@@ -1,1 +1,0 @@
-/Users/mac/.vim/plugged/ultisnips/ftdetect/snippets.vim

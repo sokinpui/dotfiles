@@ -35,7 +35,8 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 endif
 syntax on
 set termguicolors
-colorscheme onedark
+#colorscheme onedark
+colorscheme white
 
 set splitbelow
 set history=1000

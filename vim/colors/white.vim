@@ -123,11 +123,11 @@ endfunction
 
 " public {{{
 
-function! onedark#set_highlight(group, style)
+function! white#set_highlight(group, style)
   call s:h(a:group, a:style)
 endfunction
 
-function! onedark#extend_highlight(group, style)
+function! white#extend_highlight(group, style)
   call s:h(a:group, a:style, 1)
 endfunction
 
@@ -164,31 +164,31 @@ let s:vertsplit = s:colors.vertsplit
 " Syntax Groups (descriptions and ordering from `:h w18`) {{{
  
 call s:h("Comment", { "fg": s:white, "cterm": "bold,italic" }) " any comment
-call s:h("Constant", { "fg": s:cyan, "gui": "italic", "cterm": "italic" }) " any constant
+call s:h("Constant", { "fg": s:green, "gui": "italic", "cterm": "italic" }) " any constant
 call s:h("String", { "fg": s:green, "gui": "italic", "cterm": "italic" }) " a string constant: "this is a string"
 call s:h("Character", { "fg": s:green, "gui": "italic", "cterm": "italic" }) " a character constant: 'c', '\n'
 call s:h("Number", { "fg": s:dark_yellow, "cterm": "bold" }) " a number constant: 234, 0xff
 call s:h("Boolean", { "fg": s:dark_yellow, "cterm": "bold" }) " a boolean constant: TRUE, false
 call s:h("Float", { "fg": s:dark_yellow , "cterm": "bold"}) " a floating point constant: 2.3e10
-call s:h("Identifier", { "fg": s:red }) " any variable name
+call s:h("Identifier", { "fg": s:white }) " any variable name
 call s:h("Function", { "fg": s:blue }) " function name (also: methods for classes)
 call s:h("Statement", { "fg": s:purple }) " any statement
 call s:h("Conditional", { "fg": s:purple }) " if, then, else, endif, switch, etc.
 call s:h("Repeat", { "fg": s:purple }) " for, do, while, etc.
-call s:h("Label", { "fg": s:purple }) " case, default, etc.
-call s:h("Operator", { "fg": s:purple }) " sizeof", "+", "*", etc.
-call s:h("Keyword", { "fg": s:purple }) " any other keyword
-call s:h("Exception", { "fg": s:purple }) " try, catch, throw
-call s:h("PreProc", { "fg": s:yellow }) " generic Preprocessor
-call s:h("Include", { "fg": s:blue }) " preprocessor #include
-call s:h("Define", { "fg": s:purple }) " preprocessor #define
-call s:h("Macro", { "fg": s:purple }) " same as Define
-call s:h("PreCondit", { "fg": s:yellow }) " preprocessor #if, #else, #endif, etc.
+call s:h("Label", { "fg": s:white }) " case, default, etc.
+call s:h("Operator", { "fg": s:yellow }) " sizeof", "+", "*", etc.
+call s:h("Keyword", { "fg": s:white }) " any other keyword
+call s:h("Exception", { "fg": s:white }) " try, catch, throw
+call s:h("PreProc", { "fg": s:white }) " generic Preprocessor
+call s:h("Include", { "fg": s:white }) " preprocessor #include
+call s:h("Define", { "fg": s:white }) " preprocessor #define
+call s:h("Macro", { "fg": s:white }) " same as Define
+call s:h("PreCondit", { "fg": s:white }) " preprocessor #if, #else, #endif, etc.
 call s:h("Type", { "fg": s:yellow }) " int, long, char, etc.
 call s:h("StorageClass", { "fg": s:yellow }) " static, register, volatile, etc.
 call s:h("Structure", { "fg": s:yellow }) " struct, union, enum, etc.
 call s:h("Typedef", { "fg": s:yellow }) " A typedef
-call s:h("Special", { "fg": s:blue, "cterm": "bold"}) " any special symbol
+call s:h("Special", { "fg": s:blue }) " any special symbol
 call s:h("SpecialChar", { "fg": s:dark_yellow }) " special character in a constant
 call s:h("Tag", {}) " you can use CTRL-] on this
 call s:h("Delimiter", {}) " character that needs attention
