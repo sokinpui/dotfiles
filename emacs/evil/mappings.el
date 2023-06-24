@@ -1,3 +1,4 @@
+(provide 'mappings)
 ;; Define the leader key
 (global-evil-leader-mode)
 

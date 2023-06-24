@@ -1,12 +1,4 @@
-(setq package-list '(smooth-scrolling
-                     lsp-mode
-                     smex
-                     markdown-mode
-                     evil
-                     evil-leader
-                     evil-search-highlight-persist))
-
-;; Initialize package management
+;; Initialize mepla repo
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
@@ -14,26 +6,19 @@
                          ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")))
 (package-initialize)
 
-;; Install packages
-(unless package-archive-contents
-  (package-refresh-contents))
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+;; install use-package if missing
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-and-compile
+  (setq use-package-always-ensure t
+        use-package-expand-minimally t))
 
 ;; use-package
 (eval-when-compile
   ;; Following line is not needed if use-package.el is in ~/.emacs.d
-  (add-to-list 'load-path "~/.config/emacs")
+  (add-to-list 'load-path "~/.config/emacs/elpa/")
   (require 'use-package))
-
-;; Package Toggle
-(require 'evil)
-(evil-mode 1)
-(require 'smooth-scrolling)
-(smooth-scrolling-mode 1)
-(require 'evil-search-highlight-persist)
-(global-evil-search-highlight-persist -1)
 
 ;; theme
 (add-to-list 'custom-theme-load-path "~/.config/emacs/atom-one-dark-theme/")
@@ -81,21 +66,12 @@
 (setq-default tab-width 4 indent-tabs-mode nil)
 (setq-default c-basic-offset 4 c-default-style "bsd")
 
-;; Load modulade source
-(defconst user-init-dir
-  (cond ((boundp 'user-emacs-directory)
-         user-emacs-directory)
-        ((boundp 'user-init-directory)
-         user-init-directory)
-        (t "~/.config/emacs")))
 
-(defun load-user-file (file)
-  (interactive "f")
-  "Load a file in current user's configuration directory"
-  (load-file (expand-file-name file user-init-dir)))
-
-(load-user-file "evil.el")
-
+;; load modualized file.
+(add-to-list 'load-path "~/.config/emacs/evil")
+(add-to-list 'load-path "~/.config/emacs/package")
+(require 'mappings)
+(require 'use-package-config)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
