@@ -43,3 +43,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key evil-visual-state-map (kbd "C-c") 'clipboard-kill-ring-save)
 
 ;; TODO Buffer switch
+(define-key evil-normal-state-map (kbd "<backspace>") 'next-buffer)
+(define-key evil-normal-state-map (kbd "<C-backspace>") 'previous-buffer)
+
+
+(define-key evil-normal-state-map (kbd "SPC f f") 'fzf-find-file)
+(define-key evil-normal-state-map (kbd "SPC f b") 'fzf-switch-buffer)

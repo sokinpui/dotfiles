@@ -27,3 +27,14 @@
   (undo-tree-mode)
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-history-directory-alist '(("." . "~/.config/emacs/undo"))))
+
+(use-package fzf
+  :bind
+    ;; Don't forget to set keybinds!
+  :config
+  (setq fzf/args "-x --color bw --print-query --margin=1,0 --no-hscroll"
+        fzf/executable "fzf"
+        fzf/git-grep-args "-i --line-number %s"
+        fzf/grep-command "rg --no-heading -nH"
+        fzf/position-bottom t
+        fzf/window-height 15))
