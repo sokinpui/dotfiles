@@ -1,3 +1,4 @@
+(setq frame-resize-pixelwise t)
 ;; Initialize mepla repo
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -21,17 +22,13 @@
   (require 'use-package))
 
 ;; theme
-(add-to-list 'custom-theme-load-path "~/.config/emacs/atom-one-dark-theme/")
-(load-theme 'atom-one-dark t)
+;;(add-to-list 'custom-theme-load-path "~/.config/emacs/atom-one-dark-theme/")
+;;(load-theme 'atom-one-dark t)
 ;; font
-(add-to-list 'default-frame-alist
-             '(font . "JetBrains Mono-12:weight=SemiBold"))
+(set-face-attribute 'default nil :font "JetBrains Mono-12" :weight 'SemiBold)
 (set-face-attribute 'bold nil :weight 'ExtraBold)
 (set-face-attribute 'bold-italic nil :weight 'ExtraBold :slant 'italic)
 
-
-(add-to-list 'default-frame-alist '(drag-internal-border . 1))
-(add-to-list 'default-frame-alist '(internal-border-width . 5))
 (setq-default auto-fill-function 'do-auto-fill)
 
 ;; Basic setting
@@ -50,6 +47,10 @@
 
 (setq display-line-numbers-type 'relative)
 (setq make-backup-files nil)
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ;; remember last cursor postion
 (setq save-place-file "~/.config/emacs/saveplace")
@@ -68,10 +69,11 @@
 
 
 ;; load modualized file.
-(add-to-list 'load-path "~/.config/emacs/evil")
-(add-to-list 'load-path "~/.config/emacs/package")
-(require 'mappings)
+(add-to-list 'load-path "~/.config/emacs/elisp")
+(require 'evil-mappings)
 (require 'use-package-config)
+(add-to-list 'custom-theme-load-path "~/.config/emacs/elisp")
+(load-theme 'atom-one-dark t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -80,7 +82,7 @@
  ;; If there is more than one, they won't work right.
  '(initial-frame-alist '((fullscreen . maximized)))
  '(package-selected-packages
-   '(use-package evil-search-highlight-persist evil-leader smooth-scrolling lsp-mode evil))
+   '(undo-tree use-package evil-search-highlight-persist evil-leader smooth-scrolling lsp-mode evil))
  '(warning-suppress-types
    '(((defvaralias losing-value save-place))
      ((defvaralias losing-value save-place))

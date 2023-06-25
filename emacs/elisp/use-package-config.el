@@ -18,5 +18,12 @@
   (setq evil-want-keybinding nil)
   ;; no vim insert bindings
   (setq evil-undo-system 'undo-fu)
+  (evil-set-undo-system 'undo-redo)
   :config
   (evil-mode 1))
+
+(use-package undo-tree
+  :init
+  (undo-tree-mode)
+  (setq undo-tree-auto-save-history t)
+  (setq undo-tree-history-directory-alist '(("." . "~/.config/emacs/undo"))))

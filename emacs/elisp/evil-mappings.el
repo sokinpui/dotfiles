@@ -1,4 +1,4 @@
-(provide 'mappings)
+(provide 'evil-mappings)
 ;; Define the leader key
 (global-evil-leader-mode)
 
@@ -6,6 +6,7 @@
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 (define-key evil-normal-state-map (kbd "0") 'beginning-of-visual-line)
+(define-key evil-normal-state-map (kbd "$") 'end-of-visual-line)
 
 (defun evil-jump-to-first-non-blank ()
   "Jump to the first non-blank character of the visual line."
@@ -41,6 +42,4 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key evil-insert-state-map (kbd "C-v") 'clipboard-yank)
 (define-key evil-visual-state-map (kbd "C-c") 'clipboard-kill-ring-save)
 
-;; Buffer switch
-(global-set-key (kbd "DEL") 'previous-buffer)
-(define-key evil-normal-state-map (kbd "BS") 'next-buffer)
+;; TODO Buffer switch
