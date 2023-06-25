@@ -48,7 +48,7 @@
  ;; If there is more than one, they won't work right.
  '(initial-frame-alist '((fullscreen . maximized)))
  '(package-selected-packages
-   '(## fzf undo-tree use-package evil-search-highlight-persist evil-leader smooth-scrolling lsp-mode evil))
+   '(company ## fzf undo-tree use-package evil-search-highlight-persist evil-leader smooth-scrolling lsp-mode evil))
  '(warning-suppress-types
    '(((defvaralias losing-value save-place))
      ((defvaralias losing-value save-place))

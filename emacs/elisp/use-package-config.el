@@ -2,7 +2,6 @@
 
 ;; load package
 (use-package smooth-scrolling)
-(use-package lsp-mode)
 (use-package smex)
 (use-package markdown-mode)
 (use-package evil)
@@ -38,3 +37,19 @@
         fzf/grep-command "rg --no-heading -nH"
         fzf/position-bottom t
         fzf/window-height 15))
+
+(use-package lsp-mode
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  ;;:hook ((markdown-mode . lsp))
+  :commands lsp)
+
+(use-package markdown-mode
+  :hook (markdown-mode . lsp)
+  :config
+  (require 'lsp-marksman))
+
+(use-package company)
+(add-hook 'after-init-hook 'global-company-mode)
+    
