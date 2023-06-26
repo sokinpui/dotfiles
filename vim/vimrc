@@ -235,19 +235,7 @@ cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 
 # VimPlug
-nnoremap \i :w<cr>:source %<cr>:PlugInstall<cr>
-nnoremap \c :w<cr>:source %<cr>:PlugClean<cr>
+nnoremap \i :w<cr>:source ~/.vim/vimrc<cr>:PlugInstall<cr>
+nnoremap \c :w<cr>:source ~/.vim/vimrc<cr>:PlugClean<cr>
 
-plug#begin()
-Plug 'sokinpui/vim-sandwich'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/vimux'
-Plug 'junegunn/fzf.vim'
-Plug 'godlygeek/tabular' 
-Plug 'preservim/vim-markdown', { 'for': 'markdown' }
-Plug 'lilydjwg/fcitx.vim' 
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
-plug#end()
 source ~/.vim/plugins.vim

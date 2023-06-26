@@ -103,7 +103,7 @@ set smartindent
 "   Copy & paste
 
 if has("linux")
-    nnoremap <leader>y "+yy
+    nnoremap <leader>Y "+yy
     nnoremap <leader>X "+dd
     vnoremap Y "+y
     vnoremap X "+x
@@ -113,7 +113,7 @@ if has("linux")
     inoremap <C-v> <esc>"+pa
     nnoremap gy :1,$y +<cr>
 else
-    nnoremap <leader>y "*yy
+    nnoremap <leader>Y "*yy
     nnoremap <leader>X "*dd
     vnoremap Y "*y
     vnoremap C "*y
@@ -131,7 +131,6 @@ endif
 xnoremap <leader>p "_dP
 nnoremap D dd
 nnoremap <leader>v g^vg$
-inoremap <C-k> <esc>k
 
 " increment and decrement of characters
 "set nrformats+=alpha
@@ -225,18 +224,18 @@ cnoreabbrev <expr> W getcmdtype() == ':' && getcmdline() =~# '^W' ? 'w' : 'W'
 cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 
 " VimPlug
-nnoremap \i :w<cr>:source %<cr>:PlugInstall<cr>
-nnoremap \c :w<cr>:source %<cr>:PlugClean<cr>
+nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
+nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
 
-call plug#begin('~/.config/nvim/plugged')
-Plug 'sokinpui/vim-sandwich'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/vimux'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'godlygeek/tabular' 
-Plug 'preservim/vim-markdown', { 'for': 'markdown' }
-Plug 'lilydjwg/fcitx.vim' 
-
-call plug#end()
+"call plug#begin('~/.config/nvim/plugged')
+"Plug 'sokinpui/vim-sandwich'
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'preservim/vimux'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'godlygeek/tabular' 
+"Plug 'preservim/vim-markdown', { 'for': 'markdown' }
+"Plug 'lilydjwg/fcitx.vim' 
+"
+"call plug#end()
 source ~/.config/nvim/plugins.vim
