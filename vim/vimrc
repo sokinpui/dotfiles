@@ -24,7 +24,7 @@ packadd! matchit
 set mouse=a
 set ttymouse=xterm2
 #set concealcursor=""
-set conceallevel=1
+set conceallevel=3
 
 #    Appearance
 set background=dark
@@ -35,7 +35,6 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 endif
 syntax on
 set termguicolors
-#colorscheme onedark
 colorscheme white
 
 set splitbelow
@@ -72,8 +71,17 @@ nnoremap N N:set hlsearch<cr>
 nnoremap * :set hlsearch<cr>*
 nnoremap # :set hlsearch<cr>#
 
-vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
-xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
+# search via the highlighted pattern in all opened buffer
+vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>:vimgrep <C-r>9 ##<cr>
+xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>:vimgrep <C-r>9 ##<cr>
+
+# search via the highlighted pattern in current directory
+vnoremap <leader>/ "9y:set hlsearch<cr>/<C-r>9<cr>:vimgrep <C-r>9 ./**<cr>
+xnoremap <leader>/ "9y:set hlsearch<cr>/<C-r>9<cr>:vimgrep <C-r>9 ./**<cr>
+
+nnoremap <C-k> :cprevious<cr>
+nnoremap <C-j> :cnext<cr>
+
 
 # search in split window
 noremap <c-w>/ :set hlsearch<cr><c-w>v<c-w>l/
@@ -239,6 +247,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular' 
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 Plug 'lilydjwg/fcitx.vim' 
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 plug#end()
 source ~/.vim/plugins.vim

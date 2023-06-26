@@ -76,7 +76,8 @@ g:coc_snippet_next = '<C-j>'
 g:coc_snippet_prev = '<C-k>'
 
 # run command in split window
-nnoremap <leader>! :VimuxPromptCommand<CR>
+nnoremap <leader>s :VimuxPromptCommand<CR>
+nnoremap <leader><leader>s :VimuxCloseRunner<CR>
 
 # vim-markdwon
 g:vim_markdown_folding_disabled = 1
