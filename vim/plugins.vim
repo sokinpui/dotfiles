@@ -8,6 +8,7 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 Plug 'lilydjwg/fcitx.vim' 
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+"Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 call plug#end()
 
@@ -74,12 +75,6 @@ inoremap <silent><expr> <space> coc#pum#visible() ? "<esc>a<space>"
 nnoremap <silent> <LEADER>, <Plug>(coc-diagnostic-prev)
 nnoremap <silent> <LEADER>. <Plug>(coc-diagnostic-next)
 
-"augroup CocGroup
-"  autocmd!
-"  autocmd FileType markdown b:coc_suggest_disable = 1
-"  autocmd FileType text b:coc_suggest_disable = 1
-"augroup end
-
 "   coc.snippets
 inoremap <C-j> <Plug>(coc-snippets-expand-jump)
 vnoremap <C-j> <Plug>(coc-snippets-select)
@@ -97,5 +92,10 @@ let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_math = 1
 
 " fzf.vim
+let g:fzf_preview_window = ['right,50%', 'ctrl-/']
+let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.9 }}
 nnoremap <leader>ff :Files<cr>
 nnoremap <leader>fb :Buffers<cr>
+
+" WhichKey.vim
+"nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
