@@ -21,7 +21,7 @@ filetype plugin indent on
 packadd! matchit
 set mouse=a
 "set concealcursor=""
-set conceallevel=1
+set conceallevel=2
 
 "    Appearance
 set background=dark
@@ -226,16 +226,6 @@ cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 " VimPlug
 nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
+nnoremap \u :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugUpdate<cr>
 
-"call plug#begin('~/.config/nvim/plugged')
-"Plug 'sokinpui/vim-sandwich'
-"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'preservim/vimux'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'godlygeek/tabular' 
-"Plug 'preservim/vim-markdown', { 'for': 'markdown' }
-"Plug 'lilydjwg/fcitx.vim' 
-"
-"call plug#end()
 source ~/.config/nvim/plugins.vim

@@ -242,5 +242,6 @@ cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 # VimPlug
 nnoremap \i :w<cr>:source ~/.vim/vimrc<cr>:PlugInstall<cr>
 nnoremap \c :w<cr>:source ~/.vim/vimrc<cr>:PlugClean<cr>
+nnoremap \u :w<cr>:source ~/.vim/vimrc<cr>:PlugUpdate<cr>
 
 source ~/.vim/plugins.vim
