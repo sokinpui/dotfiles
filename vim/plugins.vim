@@ -4,10 +4,12 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/vimux'
 Plug 'junegunn/fzf.vim'
-Plug 'godlygeek/tabular' 
+"Plug 'godlygeek/tabular' 
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
-Plug 'lilydjwg/fcitx.vim' 
+"Plug 'lilydjwg/fcitx.vim' 
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'rhysd/clever-f.vim' 
+Plug 'lambdalisue/fern.vim' 
 "Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 call plug#end()
@@ -28,6 +30,7 @@ nmap <leader>` cciw`E
 nmap <leader>$ cciw$E
 nmap <leader>* cciw*.E
 nmap <leader>~ cciw~.E
+
 " visual
 vmap <leader>( cc(
 vmap <leader>) cc)
@@ -49,8 +52,8 @@ vmap <leader>~ cc~.
 let g:netrw_liststyle = 3
 let g:netrw_fastbrowse = 2
 
-nnoremap <leader><tab> :Explore<cr>
-nnoremap <leader><S-tab> :Texplore<cr>
+"nnoremap <leader><tab> :Explore<cr>
+"nnoremap <leader><S-tab> :Texplore<cr>
 
 "   markdown-preview
 if has('mac')
@@ -97,5 +100,29 @@ let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.9 }}
 nnoremap <leader>ff :Files<cr>
 nnoremap <leader>fb :Buffers<cr>
 
-" WhichKey.vim
+" clever-f
+let g:clever_f_smart_case = 1
+let g:clever_f_across_no_line = 0
+let g:clever_f_chars_match_any_signs = ';'
+let g:clever_f_repeat_last_char_inputs = [ "\." ]
+
+" fern file explorer
+let g:fern#mark_symbol                       = '●'
+let g:fern#renderer#default#collapsed_symbol = '▷ '
+let g:fern#renderer#default#expanded_symbol  = '▼ '
+let g:fern#renderer#default#leading          = ' '
+let g:fern#renderer#default#leaf_symbol      = ' '
+let g:fern#renderer#default#root_symbol      = '~ '
+
+let g:fern#disable_default_mappings   = 1
+let g:fern#disable_drawer_auto_quit   = 0
+let g:fern#disable_viewer_hide_cursor = 1
+
+nnoremap <leader><tab>   :Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
+"noremap  <Leader><S-tab> :Fern . -drawer -reveal=% -width=35<CR><C-w>=
+
+autocmd insertenter * execute "FernDo close"
+
+" vim-WhichKey
 "nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
