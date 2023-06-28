@@ -34,22 +34,64 @@
   (setq fzf/args "-x --color bw --print-query --margin=1,0 --no-hscroll"
         fzf/executable "fzf"
         fzf/git-grep-args "-i --line-number %s"
-        fzf/grep-command "rg --no-heading -nH"
+        fzf/grep-command "rg --ignore --hidden"
         fzf/position-bottom t
         fzf/window-height 15))
 
 (use-package lsp-mode
+  :ensure t
   :init
-  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-  (setq lsp-keymap-prefix "C-c l")
-  ;;:hook ((markdown-mode . lsp))
-  :commands lsp)
-
-(use-package markdown-mode
-  :hook (markdown-mode . lsp)
+  :hook 
+  ((c++-mode python-mode java-mode js-mode) . lsp-deferred)
+  :commands (lsp lsp-deferred)
   :config
-  (require 'lsp-marksman))
+  (setq lsp-completion-provider :none) ;; 阻止 lsp 重新设置 company-backend 而覆盖我们 yasnippet 的设置
+  (setq lsp-headerline-breadcrumb-enable t))
 
-(use-package company)
-(add-hook 'after-init-hook 'global-company-mode)
-    
+(use-package lsp-ui
+  :ensure t
+  :config
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  (setq lsp-ui-doc-position 'top))
+
+(use-package lsp-ivy
+  :ensure t
+  :after (lsp-mode))
+
+;;(use-package auto-complete
+;;  :config
+;;  (ac-config-default))
+
+(use-package counsel
+  :ensure t)
+
+(use-package ivy
+  :ensure t
+  :init
+  (ivy-mode 1)
+  (counsel-mode 1)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (setq search-default-mode #'char-fold-to-regexp)
+  (setq ivy-count-format "(%d/%d) "))
+
+(use-package good-scroll
+  :ensure t
+  :init (good-scroll-mode))
+
+(use-package company
+  :ensure t
+  :init (global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 1)
+  (setq company-tooltip-align-annotations t)
+  (setq company-idle-delay 0.0)
+  (setq company-selection-wrap-around t)
+  (setq company-transformers '(company-sort-by-occurrence)))
+
+(use-package company-box
+  :ensure t
+  :if window-system
+  :hook (company-mode . company-box-mode))

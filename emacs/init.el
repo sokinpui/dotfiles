@@ -1,11 +1,12 @@
 (setq frame-resize-pixelwise t)
 
 ;; Initialize mepla repo
+;;(require 'package)
+;;(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+;;
+;;(package-initialize)
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("org" . "http://orgmode.org/elpa/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
 ;; install use-package if missing
@@ -48,9 +49,10 @@
  ;; If there is more than one, they won't work right.
  '(initial-frame-alist '((fullscreen . maximized)))
  '(package-selected-packages
-   '(company ## fzf undo-tree use-package evil-search-highlight-persist evil-leader smooth-scrolling lsp-mode evil))
+   '(good-scroll counsel lsp-ivy auto-complete lsp-ui company-box org-modern company ## fzf undo-tree use-package evil-search-highlight-persist evil-leader smooth-scrolling lsp-mode evil))
  '(warning-suppress-types
-   '(((defvaralias losing-value save-place))
+   '((use-package)
+     ((defvaralias losing-value save-place))
      ((defvaralias losing-value save-place))
      ((defvaralias losing-value save-place))
      ((defvaralias losing-value save-place))
