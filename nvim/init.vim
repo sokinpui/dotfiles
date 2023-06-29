@@ -32,7 +32,7 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 endif
 syntax on
 set termguicolors
-colorscheme onedark
+colorscheme white
 
 set splitbelow
 set history=1000
@@ -65,6 +65,8 @@ nnoremap n n:set hlsearch<cr>
 nnoremap N N:set hlsearch<cr>
 nnoremap * :set hlsearch<cr>*
 nnoremap # :set hlsearch<cr>#
+
+highlight Comment cterm=italic,bold gui=italic,bold
 
 vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
 xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
@@ -227,5 +229,10 @@ cnoreabbrev <expr> Q getcmdtype() == ':' && getcmdline() =~# '^Q' ? 'q' : 'Q'
 nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
 nnoremap \u :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugUpdate<cr>
+
+"call plug#begin('~/.config/nvim/plugged')
+"Plug 'ful1e5/onedark.nvim'
+"
+"call plug#end()
 
 source ~/.config/nvim/plugins.vim

@@ -123,11 +123,11 @@ endfunction
 
 " public {{{
 
-function! onedark#set_highlight(group, style)
+function! white#set_highlight(group, style)
   call s:h(a:group, a:style)
 endfunction
 
-function! onedark#extend_highlight(group, style)
+function! white#extend_highlight(group, style)
   call s:h(a:group, a:style, 1)
 endfunction
 
@@ -159,6 +159,31 @@ let s:menu_grey = s:colors.menu_grey
 let s:special_grey = s:colors.special_grey
 let s:vertsplit = s:colors.vertsplit
 
+if has('nvim')
+  let g:terminal_color_0 = s:black.gui
+  let g:terminal_color_1 = s:red.gui
+  let g:terminal_color_2 = s:green.gui
+  let g:terminal_color_3 = s:yellow.gui
+  let g:terminal_color_4 = s:blue.gui
+  let g:terminal_color_5 = s:purple.gui
+  let g:terminal_color_6 = s:cyan.gui
+  let g:terminal_color_7 = s:comment_grey.gui
+  let g:terminal_color_8 = s:visual_grey.gui
+  let g:terminal_color_9 = s:red.gui
+  let g:terminal_color_10 = s:green.gui
+  let g:terminal_color_11 = s:yellow.gui
+  let g:terminal_color_12 = s:blue.gui
+  let g:terminal_color_13 = s:purple.gui
+  let g:terminal_color_14 = s:cyan.gui
+  let g:terminal_color_15 = s:white.gui
+else
+  let g:terminal_ansi_colors = [
+    \ s:black.gui, s:red.gui, s:green.gui, s:yellow.gui,
+    \ s:blue.gui, s:purple.gui, s:cyan.gui, s:comment_grey.gui,
+    \ s:visual_grey.gui, s:red.gui, s:green.gui, s:yellow.gui,
+    \ s:blue.gui, s:purple.gui, s:cyan.gui, s:white.gui
+  \]
+endif
 " }}}
 
 " Syntax Groups (descriptions and ordering from `:h w18`) {{{
@@ -171,10 +196,10 @@ call s:h("Number", { "fg": s:dark_yellow, "cterm": "bold" }) " a number constant
 call s:h("Boolean", { "fg": s:dark_yellow, "cterm": "bold" }) " a boolean constant: TRUE, false
 call s:h("Float", { "fg": s:dark_yellow , "cterm": "bold"}) " a floating point constant: 2.3e10
 call s:h("Identifier", { "fg": s:white }) " any variable name
-call s:h("Function", { "fg": s:white }) " function name (also: methods for classes)
-call s:h("Statement", { "fg": s:white }) " any statement
-call s:h("Conditional", { "fg": s:white }) " if, then, else, endif, switch, etc.
-call s:h("Repeat", { "fg": s:white }) " for, do, while, etc.
+call s:h("Function", { "fg": s:blue }) " function name (also: methods for classes)
+call s:h("Statement", { "fg": s:purple }) " any statement
+call s:h("Conditional", { "fg": s:purple }) " if, then, else, endif, switch, etc.
+call s:h("Repeat", { "fg": s:purple }) " for, do, while, etc.
 call s:h("Label", { "fg": s:white }) " case, default, etc.
 call s:h("Operator", { "fg": s:yellow }) " sizeof", "+", "*", etc.
 call s:h("Keyword", { "fg": s:white }) " any other keyword
@@ -313,8 +338,8 @@ call s:h("goTypeDecl", { "fg": s:purple })
 
 " HTML (keep consistent with Markdown, below)
 call s:h("htmlArg", { "fg": s:dark_yellow })
-call s:h("htmlBold", { "fg": s:blue, "gui": "bold", "cterm": "bold" })
-call s:h("htmlBoldItalic", { "fg": s:blue, "gui": "bold,italic", "cterm": "bold,italic" })
+call s:h("htmlBold", { "fg": s:yellow, "gui": "bold", "cterm": "bold" })
+call s:h("htmlBoldItalic", { "fg": s:yellow, "gui": "bold,italic", "cterm": "bold,italic" })
 call s:h("htmlEndTag", { "fg": s:white })
 call s:h("htmlH1", { "fg": s:red })
 call s:h("htmlH2", { "fg": s:red })
@@ -322,7 +347,7 @@ call s:h("htmlH3", { "fg": s:red })
 call s:h("htmlH4", { "fg": s:red })
 call s:h("htmlH5", { "fg": s:red })
 call s:h("htmlH6", { "fg": s:red })
-call s:h("htmlItalic", { "fg": s:blue, "gui": "italic", "cterm": "italic" })
+call s:h("htmlItalic", { "fg": s:yellow, "gui": "italic", "cterm": "italic" })
 hi htmlItalic cterm=italic
 call s:h("htmlLink", { "fg": s:cyan, "gui": "underline", "cterm": "underline" })
 call s:h("htmlSpecialChar", { "fg": s:dark_yellow })
@@ -407,8 +432,8 @@ call s:h("lessClass", { "fg": s:dark_yellow })
 
 " Markdown (keep consistent with HTML, above)
 call s:h("markdownBlockquote", { "fg": s:white })
-call s:h("markdownBold", { "fg": s:blue, "gui": "bold", "cterm": "bold" })
-call s:h("markdownBoldItalic", { "fg": s:blue, "gui": "bold,italic", "cterm": "bold,italic" })
+call s:h("markdownBold", { "fg": s:yellow, "gui": "bold", "cterm": "bold" })
+call s:h("markdownBoldItalic", { "fg": s:yellow, "gui": "bold,italic", "cterm": "bold,italic" })
 call s:h("markdownCode", { "fg": s:green })
 call s:h("markdownCodeBlock", { "fg": s:green })
 call s:h("markdownCodeDelimiter", { "fg": s:green })
@@ -423,7 +448,7 @@ call s:h("markdownHeadingRule", { "fg": s:comment_grey })
 call s:h("markdownId", { "fg": s:purple })
 call s:h("markdownIdDeclaration", { "fg": s:blue })
 call s:h("markdownIdDelimiter", { "fg": s:purple })
-call s:h("markdownItalic", { "fg": s:blue, "cterm": "italic" })
+call s:h("markdownItalic", { "fg": s:yellow, "cterm": "italic" })
 hi markdownItalic cterm=italic
 
 call s:h("markdownLinkDelimiter", { "fg": s:purple })
@@ -632,3 +657,48 @@ hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 
 " }}}
 
+
+if has("nvim")
+  " Neovim terminal colors {{{
+  let g:terminal_color_0 =  s:black.gui
+  let g:terminal_color_1 =  s:red.gui
+  let g:terminal_color_2 =  s:green.gui
+  let g:terminal_color_3 =  s:yellow.gui
+  let g:terminal_color_4 =  s:blue.gui
+  let g:terminal_color_5 =  s:purple.gui
+  let g:terminal_color_6 =  s:cyan.gui
+  let g:terminal_color_7 =  s:white.gui
+  let g:terminal_color_8 =  s:visual_grey.gui
+  let g:terminal_color_9 =  s:dark_red.gui
+  let g:terminal_color_10 = s:green.gui " No dark version
+  let g:terminal_color_11 = s:dark_yellow.gui
+  let g:terminal_color_12 = s:blue.gui " No dark version
+  let g:terminal_color_13 = s:purple.gui " No dark version
+  let g:terminal_color_14 = s:cyan.gui " No dark version
+  let g:terminal_color_15 = s:comment_grey.gui
+  let g:terminal_color_background = s:background.gui
+  let g:terminal_color_foreground = s:foreground.gui
+  " }}}
+
+  " Neovim Diagnostics {{{
+  call s:h("DiagnosticError", { "fg": s:red })
+  call s:h("DiagnosticWarn", { "fg": s:yellow })
+  call s:h("DiagnosticInfo", { "fg": s:blue })
+  call s:h("DiagnosticHint", { "fg": s:cyan })
+  call s:h("DiagnosticUnderlineError", { "fg": s:red, "gui": "underline", "cterm": "underline" })
+  call s:h("DiagnosticUnderlineWarn", { "fg": s:yellow, "gui": "underline", "cterm": "underline" })
+  call s:h("DiagnosticUnderlineInfo", { "fg": s:blue, "gui": "underline", "cterm": "underline" })
+  call s:h("DiagnosticUnderlineHint", { "fg": s:cyan, "gui": "underline", "cterm": "underline" })
+  " }}}
+
+  " Neovim LSP (for versions < 0.5.1) {{{
+  hi link LspDiagnosticsDefaultError DiagnosticError
+  hi link LspDiagnosticsDefaultWarning DiagnosticWarn
+  hi link LspDiagnosticsDefaultInformation DiagnosticInfo
+  hi link LspDiagnosticsDefaultHint DiagnosticHint
+  hi link LspDiagnosticsUnderlineError DiagnosticUnderlineError
+  hi link LspDiagnosticsUnderlineWarning DiagnosticUnderlineWarn
+  hi link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInfo
+  hi link LspDiagnosticsUnderlineHint DiagnosticUnderlineHint
+  " }}}
+endif
