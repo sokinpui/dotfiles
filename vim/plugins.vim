@@ -11,6 +11,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'rhysd/clever-f.vim' 
 Plug 'lambdalisue/fern.vim' 
 "Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'lambdalisue/fern-hijack.vim' 
 
 call plug#end()
 
