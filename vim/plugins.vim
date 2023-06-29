@@ -98,8 +98,15 @@ let g:vim_markdown_math = 1
 " fzf.vim
 let g:fzf_preview_window = ['right,50%', 'ctrl-/']
 let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.9 }}
+let g:fzf_buffers_jump = 1
+
 nnoremap <leader>ff :Files<cr>
 nnoremap <leader>fb :Buffers<cr>
+nnoremap <leader>fs :Lines<cr>
+nnoremap <leader>fp :Rg<cr>
+nnoremap <leader>f/ :History/<cr>
+nnoremap <leader>f: :History:<cr>
+nnoremap <leader>fh :Helptags<cr>
 
 " clever-f
 let g:clever_f_smart_case = 1
@@ -125,5 +132,4 @@ nnoremap <leader><tab>   :Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
 autocmd insertenter * execute "FernDo close"
 
 " vim-WhichKey
-"nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-
+"nnoremap <silent> <leader>f :WhichKey '<Space>f'<CR>
