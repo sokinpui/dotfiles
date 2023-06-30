@@ -66,6 +66,7 @@ endif
 "   coc.nvim
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : 
       \ cocfunc#CheckBackspace() ? "\<TAB>" : coc#refresh()
+
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>"
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? "\<C-g>u\<CR>\<c-r>=coc#pum#close()\<CR>" 
@@ -112,7 +113,7 @@ nnoremap <leader>fh :Helptags<cr>
 let g:clever_f_smart_case = 1
 let g:clever_f_across_no_line = 0
 let g:clever_f_chars_match_any_signs = ';'
-let g:clever_f_repeat_last_char_inputs = [ "\." ]
+let g:clever_f_repeat_last_char_inputs = [ "\<TAB>" ]
 
 " fern file explorer
 let g:fern#mark_symbol                       = '●'

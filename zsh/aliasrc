@@ -47,6 +47,7 @@ alias \
   vt="gvim -v $ZDOTDIR/script/ts" \
   vv="gvim -v ~/.vim/vimrc" \
   vc="gvim -v ~/.vim/config/" \
+  vvp="gvim -v ~/.vim/plugins.vim" \
   yab="brew services restart yabai"
 
 # Directories
@@ -105,6 +106,8 @@ alias \
   gp="git push" \
   gclone="git clone" \
   cgpush="config_git_push" \
+  gb="git branch" \
+  gsw="git switch" \
   gs="git status"
 
 # gh repo create and push to repository
@@ -147,10 +150,18 @@ l() {
 
 # hugo
 # list all create new hugo post and edit it
-hn() {
-  tree content/post/
-  [ -z $1 ] && return
-  hugo new post/$1.md && gvim -v content/post/$1.md
+hugon() {
+  cd ~/git_repo/mine/blog/
+  tree -L 1 ~/git_repo/mine/blog/content/post
+  [ -z $1 ] && echo "\nPlease provide name of post\n" && return
+  mkdir -p ~/git_repo/mine/blog/content/post/$1
+  hugo new post/$1/index.md
+  gvim -v ~/git_repo/mine/blog/content/post/$1/index.md
+}
+
+hugos() {
+  cd ~/git_repo/mine/blog/
+  hugo server
 }
 
 # create executable temporary shell script

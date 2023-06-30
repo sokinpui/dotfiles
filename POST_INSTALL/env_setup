@@ -3,5 +3,7 @@
 ln -s $HOME/.config/zsh/env $HOME/.zshenv
 ln -s $HOME/.config/zsh/profile $HOME/.zprofile
 ln -s $HOME/.config/vim $HOME/.vim
+ln -s ~/.config/vim/pack/myplugins/start ~/.config/vim/my_plugins
+ln -s ~/.config/vim/ftplugin/fern.vim ~/.config/nvim/ftplugin/fern.vim
 
 sudo ln -s /var/lib/snapd/snap /snap

@@ -16,4 +16,4 @@ vim
 nvim
 neofetch
 newsboat
-
+bat

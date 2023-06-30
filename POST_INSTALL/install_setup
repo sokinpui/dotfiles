@@ -8,7 +8,7 @@
 sudo dnf install -y \
   vim gvim neovim \
   alacritty \
-  zsh tmux htop \
+  zsh tmux htop bat \
   stack \
   neofetch newsboat \
   jetbrains-mono-fonts-all.noarch \
