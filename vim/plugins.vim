@@ -4,14 +4,17 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/vimux'
 Plug 'junegunn/fzf.vim'
-"Plug 'godlygeek/tabular' 
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
-"Plug 'lilydjwg/fcitx.vim' 
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'rhysd/clever-f.vim' 
 Plug 'lambdalisue/fern.vim' 
-"Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'lambdalisue/fern-hijack.vim' 
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'fladson/vim-kitty'
+
+"Plug 'godlygeek/tabular' 
+"Plug 'lilydjwg/fcitx.vim' 
+"Plug 'junegunn/vim-easy-align' 
+"Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 call plug#end()
 
@@ -50,7 +53,7 @@ vmap <leader>* cc*.
 vmap <leader>~ cc~.
 
 "   newtrw
-let g:netrw_liststyle = 3
+let g:netrw_liststyle  = 3
 let g:netrw_fastbrowse = 2
 
 "nnoremap <leader><tab> :Explore<cr>
@@ -86,20 +89,24 @@ vnoremap <C-j> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<C-j>'
 let g:coc_snippet_prev = '<C-k>'
 
+" coc rename variale
+nnoremap <leader>rn <Plug>(coc-rename)
+vnoremap <leader>rn <Plug>(coc-rename)
+
 " run command in split window
 nnoremap <leader>s :VimuxPromptCommand<CR>
 nnoremap <leader><leader>s :VimuxCloseRunner<CR>
  
 " vim-markdwon
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled        = 1
 let g:vim_markdown_no_default_key_mappings = 1
-let g:vim_markdown_conceal_code_blocks = 0
-let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks     = 0
+let g:vim_markdown_math                    = 1
 
 " fzf.vim
 let g:fzf_preview_window = ['right,50%', 'ctrl-/']
-let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.9 }}
-let g:fzf_buffers_jump = 1
+let g:fzf_layout         = {'window': { 'width': 0.9, 'height': 0.9 }}
+let g:fzf_buffers_jump   = 1
 
 nnoremap <leader>ff :Files<cr>
 nnoremap <leader>fb :Buffers<cr>
@@ -109,10 +116,13 @@ nnoremap <leader>f/ :History/<cr>
 nnoremap <leader>f: :History:<cr>
 nnoremap <leader>fh :Helptags<cr>
 
+" next full digit
+nnoremap <Leader>fd :set hlsearch<cr>/\d\+<cr>zz
+
 " clever-f
-let g:clever_f_smart_case = 1
-let g:clever_f_across_no_line = 0
-let g:clever_f_chars_match_any_signs = ';'
+let g:clever_f_smart_case              = 1
+let g:clever_f_across_no_line          = 0
+let g:clever_f_chars_match_any_signs   = ';'
 let g:clever_f_repeat_last_char_inputs = [ "\<TAB>" ]
 
 " fern file explorer
@@ -132,5 +142,12 @@ nnoremap <leader><tab>   :Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
 
 autocmd insertenter * execute "FernDo close"
 
-" vim-WhichKey
-"nnoremap <silent> <leader>f :WhichKey '<Space>f'<CR>
+" vim-visual-mutli, mulit cursor
+let g:VM_quit_after_leaving_insert_mode = 1
+let g:VM_highlight_matches = 'red'
+
+let g:VM_leader = '<space>'
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<leader>m'  
+let g:VM_maps['Find Subword Under']         = '<leader>m'  
+let g:VM_custom_remaps = {'s': 'c'}

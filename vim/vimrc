@@ -45,9 +45,9 @@ colorscheme white
 set splitbelow
 set history=1000
 set number
+set relativenumber
 set showcmd
 set ruler
-set relativenumber
 set wildmenu
 
 #  statusline setting
@@ -94,8 +94,6 @@ noremap <c-w>? :set hlsearch<cr><c-w>v<c-w>l?
 noremap <c-w>* :set hlsearch<cr><c-w>v<c-w>l*
 noremap <c-w># :set hlsearch<cr><c-w>v<c-w>l#
 
-# next full digit
-nnoremap <Leader>n :set hlsearch<cr>/\d\+<cr>zz
 set smartindent   
 
 # Cursorline
