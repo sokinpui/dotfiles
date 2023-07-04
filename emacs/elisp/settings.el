@@ -11,10 +11,17 @@
       default-frame-alist '((undecorated . t))
       )
 
+;; line wrapping
+;(add-hook 'text-mode-hook 'visual-line-mode)
+(visual-line-mode 1)
 (global-visual-line-mode t)
-(global-display-line-numbers-mode)
+(setq-default word-wrap t)
+(auto-fill-mode -1)
 
+(global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
+
+;; backup and swap file under /tmp
 (setq make-backup-files nil)
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -22,9 +29,7 @@
       `((".*" ,temporary-file-directory t)))
 
 ;; remember last cursor postion
-(setq save-place-file "~/.config/emacs/saveplace")
-(setq-default save-place-mode t)
-(require 'saveplace)
+(save-place-mode 1)
 
 ;; Smooth scrolling
 (setq scroll-margin 5
@@ -35,4 +40,6 @@
 (setq-default tab-width 4 indent-tabs-mode nil)
 (setq-default c-basic-offset 4 c-default-style "bsd")
 
-;; highlight & syntax
+;; disable message buffer
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")

@@ -1,6 +1,7 @@
-45748
-50
-Emacs tutorial.  See end for copying conditions.
+-5
+54
+
+:quEmacs tutorial.  See end for copying conditions.
 
 Emacs commands generally involve the CONTROL key (often labeled CTRL)
 or the META key (usually labeled ALT).  Rather than writing that
@@ -17,15 +18,6 @@ To quit a partially entered command, type C-g.
 To stop the tutorial, type C-x k, then <Return> at the prompt.
 The characters ">>" at the left margin indicate directions for you to
 try using a command.  For instance:
-
-
-
-
-
-[Middle of page left blank for didactic purposes.   Text continues below]
-
-
-
 
 
 
@@ -177,8 +169,6 @@ word and sentence moving commands:
 	C-e	Move to end of line
 
 	M-a	Move back to beginning of sentence
-
-
 	M-e	Move forward to end of sentence
 
 >> Try all of these commands now a few times for practice.
@@ -369,7 +359,7 @@ it several times.
 
 >> Try that now -- type C-u 8 * to insert ********.
 
-You've now earned the most basic way of typing something in
+You've now learned the most basic way of typing something in
 Emacs and correcting errors.  You can delete by words or lines
 as well.  Here is a summary of the delete operations:
 

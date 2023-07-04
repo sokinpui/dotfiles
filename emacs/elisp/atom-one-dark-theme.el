@@ -252,9 +252,9 @@
    `(ivy-highlight-face ((t (:inherit font-lock-builtin-face))))
    `(ivy-match-required-face ((t (:inherit minibuffer-prompt :foreground ,atom-one-dark-red-1))))
    `(ivy-minibuffer-match-face-1 ((t (:background ,atom-one-dark-bg-hl))))
-   `(ivy-minibuffer-match-face-2 ((t (:inherit ivy-minibuffer-match-face-1 :background ,atom-one-dark-black :foreground ,atom-one-dark-purple :weight semi-ExtraBold))))
-   `(ivy-minibuffer-match-face-3 ((t (:inherit ivy-minibuffer-match-face-2 :background ,atom-one-dark-black :foreground ,atom-one-dark-green :weight semi-ExtraBold))))
-   `(ivy-minibuffer-match-face-4 ((t (:inherit ivy-minibuffer-match-face-2 :background ,atom-one-dark-black :foreground ,atom-one-dark-orange-2 :weight semi-ExtraBold))))
+   `(ivy-minibuffer-match-face-2 ((t (:inherit ivy-minibuffer-match-face-1 :background ,atom-one-dark-black :foreground ,atom-one-dark-purple :weight ExtraBold))))
+   `(ivy-minibuffer-match-face-3 ((t (:inherit ivy-minibuffer-match-face-2 :background ,atom-one-dark-black :foreground ,atom-one-dark-green :weight ExtraBold))))
+   `(ivy-minibuffer-match-face-4 ((t (:inherit ivy-minibuffer-match-face-2 :background ,atom-one-dark-black :foreground ,atom-one-dark-orange-2 :weight ExtraBold))))
    `(ivy-minibuffer-match-highlight ((t (:inherit ivy-current-match))))
    `(ivy-modified-buffer ((t (:inherit default :foreground ,atom-one-dark-orange-1))))
    `(ivy-virtual ((t (:inherit font-lock-builtin-face :slant italic))))
@@ -459,7 +459,7 @@
    `(notmuch-tag-unread ((t (:foreground ,atom-one-dark-red-1))))
    `(notmuch-tree-match-author-face ((t (:inherit notmuch-search-matching-authors))))
    `(notmuch-tree-match-date-face ((t (:inherit notmuch-search-date))))
-   `(notmuch-tree-match-face ((t (:weight semi-ExtraBold))))
+   `(notmuch-tree-match-face ((t (:weight ExtraBold))))
    `(notmuch-tree-match-tag-face ((t (:inherit notmuch-tag-face))))
    `(notmuch-tree-no-match-face ((t (:slant italic :weight light :inherit font-lock-comment-face))))
 
@@ -603,9 +603,9 @@
 
    ;; regexp-builder
    `(reb-match-0 ((t (:background ,atom-one-dark-gray))))
-   `(reb-match-1 ((t (:background ,atom-one-dark-black :foreground ,atom-one-dark-purple :weight semi-ExtraBold))))
-   `(reb-match-2 ((t (:background ,atom-one-dark-black :foreground ,atom-one-dark-green :weight semi-ExtraBold))))
-   `(reb-match-3 ((t (:background ,atom-one-dark-black :foreground ,atom-one-dark-orange-2 :weight semi-ExtraBold))))
+   `(reb-match-1 ((t (:background ,atom-one-dark-black :foreground ,atom-one-dark-purple :weight ExtraBold))))
+   `(reb-match-2 ((t (:background ,atom-one-dark-black :foreground ,atom-one-dark-green :weight ExtraBold))))
+   `(reb-match-3 ((t (:background ,atom-one-dark-black :foreground ,atom-one-dark-orange-2 :weight ExtraBold))))
 
    ;; desktop-entry
    `(desktop-entry-deprecated-keyword-face ((t (:inherit font-lock-warning-face))))

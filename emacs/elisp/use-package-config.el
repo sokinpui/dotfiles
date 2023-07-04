@@ -1,3 +1,4 @@
+;;(add-to-list 'load-path "~/.config/emacs/elisp")
 (provide 'use-package-config)
 
 ;; load package
@@ -38,6 +39,28 @@
         fzf/position-bottom t
         fzf/window-height 15))
 
+(use-package good-scroll
+  :ensure t
+  :init (good-scroll-mode))
+
+;;(use-package auto-complete
+;;  :config
+;;  (ac-config-default))
+
+(use-package counsel
+  :ensure t)
+
+(use-package ivy
+  :ensure t
+  :init
+  (ivy-mode 1)
+  (counsel-mode 1)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (setq search-default-mode #'char-fold-to-regexp)
+  (setq ivy-count-format "(%d/%d) "))
+
 (use-package lsp-mode
   :ensure t
   :init
@@ -59,39 +82,26 @@
   :ensure t
   :after (lsp-mode))
 
-;;(use-package auto-complete
-;;  :config
-;;  (ac-config-default))
-
-(use-package counsel
-  :ensure t)
-
-(use-package ivy
-  :ensure t
-  :init
-  (ivy-mode 1)
-  (counsel-mode 1)
-  :config
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (setq search-default-mode #'char-fold-to-regexp)
-  (setq ivy-count-format "(%d/%d) "))
-
-(use-package good-scroll
-  :ensure t
-  :init (good-scroll-mode))
-
 (use-package company
   :ensure t
-  :init (global-company-mode)
   :config
-  (setq company-minimum-prefix-length 1)
-  (setq company-tooltip-align-annotations t)
-  (setq company-idle-delay 0.0)
-  (setq company-selection-wrap-around t)
-  (setq company-transformers '(company-sort-by-occurrence)))
+  (setq company-idle-delay 0.0
+        company-minimum-prefix-length 1
+        company-tooltip-limit 20
+        company-tooltip-align-annotations t
+        company-tooltip-flip-when-above t
+        company-show-numbers t
+        company-dabbrev-downcase nil
+        company-require-match nil
+        company-dabbrev-ignore-case t)
+  (setq company-backends '(company-dabbrev))
+  :hook (after-init . global-company-mode))
 
-(use-package company-box
-  :ensure t
-  :if window-system
-  :hook (company-mode . company-box-mode))
+;; Modify company so that tab and S-tab cycle through completions without
+;; needing to hit enter.
+(require 'company-complete-cycle)
+
+;;(use-package company-box
+;;  :ensure t
+;;  :if window-system
+;;  :hook (company-mode . company-box-mode))

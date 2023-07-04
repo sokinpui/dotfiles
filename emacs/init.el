@@ -23,9 +23,6 @@
   (add-to-list 'load-path "~/.config/emacs/elpa/")
   (require 'use-package))
 
-(setq-default auto-fill-function 'do-auto-fill)
-
-
 ;; load modualized file.
 (add-to-list 'load-path "~/.config/emacs/elisp")
 (require 'evil-mappings)
