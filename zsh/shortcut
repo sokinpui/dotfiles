@@ -18,3 +18,7 @@ _paste-copy-using-xsel() {
 
 zle -N _paste-copy-using-xsel
 bindkey '^V' _paste-copy-using-xsel # Paste
+
+bindkey -s '^z' 'fg\n'
+
+bindkey -s '^k' '^[k'

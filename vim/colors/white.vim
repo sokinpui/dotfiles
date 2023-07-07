@@ -1,4 +1,3 @@
-" vim:fdm=marker
 " Vim Color File
 " Name:       onedark.vim
 " Maintainer: https://github.com/joshdick/onedark.vim/
@@ -166,12 +165,13 @@ let s:yellowgreen = s:colors.yellowgreen
 let s:lightred = s:colors.lightred
 let s:lightred = s:colors.lightred
 let s:lightyellow = s:colors.lightyellow
+let s:comment = s:colors.comment
 
 " }}}
 
 " Syntax Groups (descriptions and ordering from `:h w18`) {{{
  
-call s:h("Comment", { "fg": s:white, "cterm": "bold,italic" }) " any comment
+call s:h("Comment", { "fg": s:comment, "cterm": "bold,italic" }) " any comment
 call s:h("Constant", { "fg": s:green, "gui": "italic", "cterm": "italic" }) " any constant
 call s:h("String", { "fg": s:green, "gui": "italic", "cterm": "italic" }) " a string constant: "this is a string"
 call s:h("Character", { "fg": s:green, "gui": "italic", "cterm": "italic" }) " a character constant: 'c', '\n'
@@ -200,7 +200,7 @@ call s:h("Special", { "fg": s:blue }) " any special symbol
 call s:h("SpecialChar", { "fg": s:dark_yellow }) " special character in a constant
 call s:h("Tag", {}) " you can use CTRL-] on this
 call s:h("Delimiter", {}) " character that needs attention
-call s:h("SpecialComment", { "fg": s:white }) " special things inside a comment
+call s:h("SpecialComment", { "fg": s:comment }) " special things inside a comment
 call s:h("Debug", {}) " debugging statements
 call s:h("Underlined", { "gui": "underline", "cterm": "underline" }) " text that stands out, HTML links
 call s:h("Ignore", {}) " left blank, hidden
@@ -238,7 +238,7 @@ call s:h("SignColumn", {}) " column where signs are displayed
 call s:h("IncSearch", { "fg": s:black, "bg": s:yellow, "cterm": "bold"}) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
 call s:h("LineNr", { "fg": s:gutter_fg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 call s:h("CursorLineNr", {"bg": s:black}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-call s:h("MatchParen", { "fg": s:red, "gui": "underline", "cterm": "bold" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
+call s:h("MatchParen", { "fg": s:lightred, "gui": "bold", "cterm": "bold" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
 call s:h("ModeMsg", {}) " 'showmode' message (e.g., "-- INSERT --")
 call s:h("MoreMsg", {}) " more-prompt
 call s:h("NonText", { "fg": s:special_grey }) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).

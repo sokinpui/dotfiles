@@ -31,24 +31,32 @@ gw() {
 
 # quick editing
 alias \
-  vim="gvim -v" \
-  viM="gvim -v" \
-  vIM="gvim -v" \
-  vIm="gvim -v" \
-  vi="gvim -v" \
-  vI="gvim -v" \
-  v="gvim -v" \
-  v="gvim -v" \
-  vz="gvim -v $ZDOTDIR/.zshrc" \
-  va="gvim -v $ZDOTDIR/aliasrc" \
-  vp="gvim -v $ZDOTDIR/profile" \
-  ve="gvim -v $ZDOTDIR/env" \
-  vs="gvim -v $ZDOTDIR/shortcut" \
-  vt="gvim -v $ZDOTDIR/script/ts" \
-  vv="gvim -v ~/.vim/vimrc" \
-  vc="gvim -v ~/.vim/config/" \
-  vvp="gvim -v ~/.vim/plugins.vim" \
-  yab="brew services restart yabai"
+  vim="nvim" \
+  viM="nvim" \
+  vIM="nvim" \
+  vIm="nvim" \
+  vi="nvim" \
+  vI="nvim" \
+  v="nvim" \
+  nvIm="nvim" \
+  nvIM="nvim" \
+  nvMi="nvim" \
+  nvMI="nvim" \
+  nvmI="nvim" \
+  nvIm="nvim" \
+  nv="nvim" \
+  nV="nvim" \
+  nvi="nvim" \
+  nvI="nvim" \
+  vz="nvim $ZDOTDIR/.zshrc" \
+  va="nvim $ZDOTDIR/aliasrc" \
+  vp="nvim $ZDOTDIR/profile" \
+  ve="nvim $ZDOTDIR/env" \
+  vs="nvim $ZDOTDIR/shortcut" \
+  vt="nvim $ZDOTDIR/script/ts" \
+  vv="nvim ~/.config/nvim/init.vim" \
+  vc="nvim ~/.vim/config/" \
+  vvp="nvim ~/.config/nvim/plugins.vim"
 
 # Directories
 setopt autopushd pushdignoredups
@@ -87,11 +95,16 @@ alias \
   mand="tldr" \
   wh="which" \
   x="xargs" \
-  xov="xargs -o gvim -v" \
-  xov="xargs -o gvim -v" \
+  xov="xargs -o nvim" \
+  xov="xargs -o nvim" \
   su="sudo -i" \
   del="trash" \
   mvdd="move_recent_download_to_dir"
+
+# cmd too short, verbose output
+alias \
+  mv="mv -v" \
+  cp="cp -v" \
 
 ffn() {
   [ -z $* ] && echo "Usage ff: ff <regex | name of files>, find files matched regex in current directory" && return
@@ -104,11 +117,18 @@ alias \
   ga="git add --all" \
   gm="git commit -m" \
   gp="git push" \
-  gclone="git clone" \
+  gcl="git clone" \
   cgpush="config_git_push" \
   gb="git branch" \
-  gsw="git switch" \
-  gs="git status"
+  gna="git notes add" \
+  gl="git log" \
+  gd="git diff" \
+  gsw="git switch"
+
+gs(){
+  [ -f nameList.txt ]  && echo "\nFound file nameList.txt\n" ; git status --untracked-files=no || git status
+}
+
 
 # gh repo create and push to repository
 ghrc() {
@@ -135,6 +155,7 @@ alias \
 alias \
   fd="fd --color never" \
   grep="grep -i --color=auto" \
+  rg="rg -i" \
   htop="TERM=xterm-256color htop" \
   news="TERM=xterm-256color newsboat" \
   ll="ls -l --color=auto -h --group-directories-first" \
@@ -156,7 +177,7 @@ hugon() {
   [ -z $1 ] && echo "\nPlease provide name of post\n" && return
   mkdir -p ~/git_repo/mine/blog/content/post/$1
   hugo new post/$1/index.md
-  gvim -v ~/git_repo/mine/blog/content/post/$1/index.md
+  nvim ~/git_repo/mine/blog/content/post/$1/index.md
 }
 
 hugos() {
@@ -166,7 +187,7 @@ hugos() {
 
 # create executable temporary shell script
 tmp() {
-  touch tmp.sh && chmod +x tmp.sh && gvim -v tmp.sh
+  touch tmp.sh && chmod +x tmp.sh && nvim tmp.sh
 }
 
 # kmoand

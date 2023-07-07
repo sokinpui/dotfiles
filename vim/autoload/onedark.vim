@@ -29,6 +29,7 @@ let s:colors = {
       \ "yellowgreen": get(s:overrides, "yellowgreen", { "gui": "#afff00", "cterm": "154", "cterm16": "5" }),
       \ "lightred": get(s:overrides, "lightred", { "gui": "#ff0000", "cterm": "9", "cterm16": "9" }),
       \ "lightyellow": get(s:overrides, "lightred", { "gui": "#ffff5f", "cterm": "227", "cterm16": "3" }),
+      \ "comment": get(s:overrides, "comment", { "gui": "#808080", "cterm": "244", "cterm16": "7" }),
       \}
 
 function! onedark#GetColors()

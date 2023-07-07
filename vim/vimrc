@@ -209,7 +209,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 # auto source .vimrc
 autocmd! bufwritepost .vimrc ++nested source %
 nnoremap <leader>S :source ~/.config/.vim/vimrc<cr>
-nnoremap <C-z> :shell<cr>
 
 # update current file
 noremap <leader>e :edit! %<cr>

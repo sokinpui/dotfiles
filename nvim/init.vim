@@ -13,12 +13,16 @@ set directory=/tmp//
 set undofile
 set nocompatible
 set nopaste
+set autoread
+
 set backspace=indent,eol,start 
 set ttimeoutlen=0
 set encoding=utf-8
+
 filetype plugin on
 filetype plugin indent on
 packadd! matchit
+
 set mouse=a
 "set concealcursor=""
 set conceallevel=2
@@ -32,7 +36,10 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 endif
 syntax on
 set termguicolors
-colorscheme white
+let g:onedark_config = {
+    \ 'style': 'dark',
+\}
+colorscheme onedark
 
 set splitbelow
 set history=1000
@@ -40,10 +47,12 @@ set number
 set showcmd
 set ruler
 set relativenumber
+
 set wildmenu
+set wildoptions = ""
 
 "  statusline setting
-set statusline=%<%F\ %h%m%r%=%-5.(%l,%c-%v%)\ %p%%
+set statusline=%<%F " more setting in pack directory
 set laststatus=2
 
 "   Cursor style
@@ -66,8 +75,6 @@ nnoremap N N:set hlsearch<cr>
 nnoremap * :set hlsearch<cr>*
 nnoremap # :set hlsearch<cr>#
 
-highlight Comment cterm=italic,bold gui=italic,bold
-
 vnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
 xnoremap / "9y:set hlsearch<cr>/<C-r>9<cr>
 
@@ -78,8 +85,7 @@ noremap <c-w>* :set hlsearch<cr><c-w>v<c-w>l*
 noremap <c-w># :set hlsearch<cr><c-w>v<c-w>l#
 
 " next full digit
-nnoremap <Leader>n :set hlsearch<cr>/\d\+<cr>zz
-set smartindent   
+"nnoremap <Leader>n :set hlsearch<cr>/\d\+<cr>zz
 
 " Cursorline
 set scrolloff=5
@@ -99,6 +105,7 @@ set tabstop=8
 set expandtab     
 set shiftwidth=4  
 set autoindent    
+set smartindent   
 set smartindent   
 
 "       Mapping
@@ -144,11 +151,20 @@ nnoremap ) (
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz 
 
+noremap J }
+noremap K {
+
+noremap <C-j> J
+noremap <C-k> K
+
 " Horizontial
 
 " Texts
 vnoremap < <gv
 vnoremap > >gv
+
+" Jumps
+nnoremap <c-i> <c-i>
 
 "    Split windows
 " Naviagation
@@ -230,9 +246,6 @@ nnoremap \i :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nnoremap \c :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugClean<cr>
 nnoremap \u :w<cr>:source ~/.config/nvim/init.vim<cr>:PlugUpdate<cr>
 
-"call plug#begin('~/.config/nvim/plugged')
-"Plug 'ful1e5/onedark.nvim'
-"
-"call plug#end()
-
 source ~/.config/nvim/plugins.vim
+
+lua require('plugin-config/nvim-treesitter')
